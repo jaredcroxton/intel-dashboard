@@ -150,57 +150,76 @@ async function main() {
     await page.waitForTimeout(3000);
 
     // ── Step 4: Add briefing as source ──
+    // The NotebookLM UI auto-opens a "Create Audio and Video Overviews" dialog
+    // when a new notebook is created. It shows: Upload files / Websites / Drive / Copied text
     console.log('[4/6] Uploading briefing as source...');
 
-    // Click "Add source"
-    const addSourceSelectors = [
-      '[aria-label="Add source"]',
-      'button:has-text("Add source")',
-      'text=Add source',
-      '[data-testid="add-source"]',
+    await page.screenshot({ path: `/tmp/nlm-02-dialog.png` });
+
+    // The source dialog should already be visible. Click "Copied text" directly.
+    const copiedTextSelectors = [
+      'button:has-text("Copied text")',
+      'text=Copied text',
+      'button:has-text("Paste text")',
+      'text=Paste text',
     ];
 
     clicked = false;
-    for (const sel of addSourceSelectors) {
+    for (const sel of copiedTextSelectors) {
       try {
-        await page.click(sel, { timeout: 5000 });
+        await page.click(sel, { timeout: 8000 });
         clicked = true;
+        console.log(`  ✓ Clicked "Copied text" (selector: ${sel})`);
         break;
       } catch { /* try next */ }
     }
 
+    // If the auto-dialog didn't appear, try clicking "+ Add sources" in the sidebar
     if (!clicked) {
-      console.error('  ✗ Could not find "Add source" button');
+      console.log('  ⚠ Auto-dialog not found, trying sidebar...');
+      const sidebarSourceSelectors = [
+        'text=Add sources',
+        'button:has-text("Add sources")',
+        '[aria-label="Add sources"]',
+        'text=Add source',
+        'button:has-text("Add source")',
+      ];
+
+      for (const sel of sidebarSourceSelectors) {
+        try {
+          await page.click(sel, { timeout: 5000 });
+          console.log(`  ✓ Opened source panel (selector: ${sel})`);
+          await page.waitForTimeout(2000);
+          // Now click "Copied text" in the dialog
+          for (const cs of copiedTextSelectors) {
+            try {
+              await page.click(cs, { timeout: 5000 });
+              clicked = true;
+              break;
+            } catch { /* try next */ }
+          }
+          if (clicked) break;
+        } catch { /* try next */ }
+      }
+    }
+
+    if (!clicked) {
+      console.error('  ✗ Could not find "Copied text" button');
       await page.screenshot({ path: `/tmp/nlm-error-source.png` });
       process.exit(1);
     }
 
     await page.waitForTimeout(2000);
+    await page.screenshot({ path: `/tmp/nlm-02b-paste-form.png` });
 
-    // Select "Copied text" / "Paste text"
-    const pasteSelectors = [
-      'text=Copied text',
-      'text=Paste text',
-      'text=Pasted text',
-      '[data-testid="paste-text"]',
-    ];
-
-    for (const sel of pasteSelectors) {
-      try {
-        await page.click(sel, { timeout: 3000 });
-        break;
-      } catch { /* try next */ }
-    }
-
-    await page.waitForTimeout(1500);
-
-    // Fill in the title
-    const titleInput = await page.$('input[placeholder*="title"], input[placeholder*="Title"], input[aria-label*="title"]');
+    // Fill in the title if there's a title field
+    const titleInput = await page.$('input[placeholder*="title"], input[placeholder*="Title"], input[placeholder*="Source name"], input[aria-label*="title"], input[aria-label*="name"]');
     if (titleInput) {
       await titleInput.fill(`${config.name} — ${briefingDate}`);
+      console.log('  ✓ Title set');
     }
 
-    // Paste the briefing content
+    // Paste the briefing content into the text area
     const textArea = await page.$('textarea, [contenteditable="true"], [role="textbox"]');
     if (textArea) {
       await textArea.fill(briefingHtml);
@@ -211,22 +230,27 @@ async function main() {
       process.exit(1);
     }
 
+    await page.screenshot({ path: `/tmp/nlm-02c-filled.png` });
+
     // Click "Insert" / "Add" / "Save"
     const insertSelectors = [
       'button:has-text("Insert")',
       'button:has-text("Add")',
       'button:has-text("Save")',
       'button:has-text("Submit")',
+      'button:has-text("Done")',
     ];
 
     for (const sel of insertSelectors) {
       try {
         await page.click(sel, { timeout: 3000 });
+        console.log(`  ✓ Source submitted (selector: ${sel})`);
         break;
       } catch { /* try next */ }
     }
 
     await page.waitForTimeout(5000);
+    await page.screenshot({ path: `/tmp/nlm-02d-source-added.png` });
     console.log('  ✓ Source added');
 
     // ── Step 5: Generate Video Overview (Explainer mode) ──
