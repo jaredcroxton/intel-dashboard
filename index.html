@@ -1147,6 +1147,12 @@ body[data-tab="apac"]       { --accent: #C09A5B; }
         <h1 class="hero-headline" id="hero-headline"></h1>
         <p class="hero-summary" id="hero-summary"></p>
         <div class="hero-callouts" id="hero-callouts"></div>
+        <div style="margin-top: 1.5rem; margin-bottom: 1rem;">
+          <button id="generate-video-btn" onclick="handleGenerateVideo()" style="background: var(--black); color: var(--accent); padding: 0.85rem 1.5rem; border-radius: 999px; font-family: 'Georgia', serif; font-weight: 700; font-size: 0.95rem; letter-spacing: -0.01em; border: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: opacity 0.2s;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            Generate Video Explainer
+          </button>
+        </div>
       </div>
       <div class="hero-image-wrap" id="hero-image-wrap">
         <span class="hero-image-tag" id="hero-image-tag">Top Story</span>
@@ -2359,6 +2365,34 @@ function wireScrollReveal() {
     });
   }, { threshold: 0.06 });
   document.querySelectorAll('.section').forEach(el => _scrollObserver.observe(el));
+  renderBrockPulse();
+}
+
+async function handleGenerateVideo() {
+  if (!activeBriefing || !activeBriefing.html) {
+    alert("No briefing content found to copy.");
+    return;
+  }
+  
+  const btn = document.getElementById('generate-video-btn');
+  const originalText = btn.innerHTML;
+  
+  try {
+    await navigator.clipboard.writeText(activeBriefing.html);
+    
+    // Show success state on button
+    btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied! Opening NotebookLM...`;
+    
+    setTimeout(() => {
+      window.open('https://notebooklm.google.com/', '_blank');
+      btn.innerHTML = originalText;
+    }, 1500);
+    
+  } catch (err) {
+    console.error("Failed to copy to clipboard", err);
+    alert("Failed to copy to clipboard. Please try again.");
+    btn.innerHTML = originalText;
+  }
 }
 
 init();
