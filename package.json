@@ -1,0 +1,16 @@
+{
+  "name": "intel-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "APAC Daily Intel Dashboard with automated NotebookLM video explainer generation",
+  "scripts": {
+    "generate-video": "node scripts/generate-video-explainer.js",
+    "save-session": "node scripts/save-google-session.js",
+    "test-email": "node scripts/test-email.js"
+  },
+  "dependencies": {
+    "playwright": "^1.50.0",
+    "resend": "^4.0.0"
+  }
+}

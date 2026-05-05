@@ -1,0 +1,85 @@
+# Video Explainer Automation
+name: Generate Video Explainer
+
+on:
+  # Runs after briefings are generated — trigger manually or on schedule
+  schedule:
+    # APAC Daily — every day at 9:10pm UTC (7:10am Brisbane AEST)
+    # Offset by 10 min to let briefing generation finish first
+    - cron: '10 21 * * *'
+  
+  # Manual trigger for testing
+  workflow_dispatch:
+    inputs:
+      tab:
+        description: 'Which briefing tab'
+        required: true
+        type: choice
+        options:
+          - apac
+          - sales
+          - leadership
+      date:
+        description: 'Briefing date (YYYY-MM-DD). Leave empty for today.'
+        required: false
+
+jobs:
+  generate-video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    
+    strategy:
+      matrix:
+        include:
+          # Daily: APAC
+          - tab: apac
+          # Twice weekly: Sales (Sun + Wed) and Leadership (Sun + Wed)
+          # The script will exit gracefully if no briefing exists for the date
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Determine date
+        id: date
+        run: |
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            echo "DATE=${{ github.event.inputs.date }}" >> $GITHUB_OUTPUT
+          else
+            echo "DATE=$(date -u +%Y-%m-%d)" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Determine tab
+        id: tab
+        run: |
+          if [ -n "${{ github.event.inputs.tab }}" ]; then
+            echo "TAB=${{ github.event.inputs.tab }}" >> $GITHUB_OUTPUT
+          else
+            echo "TAB=${{ matrix.tab }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate video explainer and email link
+        run: node scripts/generate-video-explainer.js ${{ steps.tab.outputs.TAB }} ${{ steps.date.outputs.DATE }}
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+          GOOGLE_SESSION_JSON: ${{ secrets.GOOGLE_SESSION_JSON }}
+
+      - name: Upload debug screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: notebooklm-screenshots-${{ steps.tab.outputs.TAB }}-${{ steps.date.outputs.DATE }}
+          path: /tmp/nlm-*.png
+          retention-days: 3

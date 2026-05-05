@@ -2183,7 +2183,7 @@ function brockGetContext() {
   const lines = [`Tab: ${TABS[activeTab].label}`, `Date: ${activeBriefing.date}`];
   if (b.topOfMind.length) {
     lines.push('\nTop stories:');
-    b.topOfMind.slice(0,5).forEach(t => lines.push(`- ${t.headline}: ${t.body.slice(0,200)}`));
+    b.topOfMind.slice(0,5).forEach(t => lines.push(`- ${t.headline}: ${t.body.slice(0,200)} [URL: ${t.sources[0]?.url || ''}]`));
   }
   const active = b.markets.filter(m => !m.isQuiet);
   if (active.length) {
@@ -2192,11 +2192,11 @@ function brockGetContext() {
   }
   if (b.xPosts.length) {
     lines.push('\nX voices:');
-    b.xPosts.slice(0,5).forEach(x => lines.push(`- ${x.handle}: ${x.text.slice(0,120)}`));
+    b.xPosts.slice(0,5).forEach(x => lines.push(`- ${x.handle}: ${x.text.slice(0,120)} [URL: ${x.link || ''}]`));
   }
   if (b.competitors.length) {
     lines.push('\nCompetitor moves:');
-    b.competitors.slice(0,4).forEach(c => lines.push(`- ${c.title}: ${c.body.slice(0,120)}`));
+    b.competitors.slice(0,4).forEach(c => lines.push(`- ${c.brand}: ${c.detail.slice(0,120)} [URL: ${c.link || ''}]`));
   }
   return lines.join('\n');
 }
@@ -2205,7 +2205,10 @@ function brockAddMsg(role, text) {
   const msgs = document.getElementById('brock-msgs');
   const div = document.createElement('div');
   div.className = `brock-msg ${role}`;
-  div.innerHTML = `<div class="brock-bubble">${esc(text)}</div>`;
+  let safeText = esc(text);
+  safeText = safeText.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" style="color:var(--text-1);text-decoration:underline">$1</a>');
+  safeText = safeText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  div.innerHTML = `<div class="brock-bubble">${safeText}</div>`;
   msgs.appendChild(div);
   msgs.scrollTop = msgs.scrollHeight;
   return div;
@@ -2241,12 +2244,16 @@ async function brockSend() {
 
   try {
     const context = brockGetContext();
-    const system = `You are Brock, a sharp and concise intelligence assistant embedded in a daily briefing dashboard for Jared Croxton, a director who sells Accor Plus hotel memberships across Asia Pacific (India, Thailand, Indonesia, Philippines, Vietnam, Australia, NZ). You help him extract sales insights, market angles, and tactical moves from the current briefing.
+    const system = `You are Brock, a CEO-level sales intelligence partner to Jared Croxton, a director who sells Accor Plus hotel memberships across Asia Pacific (India, Thailand, Indonesia, Philippines, Vietnam, Australia, NZ). Your persona is personal, highly business-oriented, and outcomes-driven. You speak like a seasoned executive—direct, strategic, and focused on execution, but still conversational. You help him extract sales insights, market angles, and tactical moves from the current briefing.
 
 Current briefing context:
 ${context}
 
-Guidelines: Be direct, actionable, max 3 short paragraphs. Reference specific briefing content when relevant. Frame insights through the lens of selling Accor Plus memberships.`;
+RULES:
+1. CEO COMMUNICATION STYLE: No AI fluff ("Certainly," "Here are your insights"). Be personal but get straight to the point. If the user says "hello", reply with: "Hello Jared. Let's get to business. What do you need?". If you need more context to give a killer strategy, ask a clarifying question.
+2. GEOGRAPHIC DISCIPLINE: If asked about a specific country/market (e.g., India), DO NOT mention news, sales, or data from other countries unless there is a direct outbound travel link.
+3. STRUCTURE & LINKS: When quoting a story or market, provide 3-4 bullet points. You MUST include markdown links to the sources if a URL is provided in the context, formatted exactly as [Source Name](url).
+4. OUTCOMES DRIVEN: Always conclude by explaining exactly how to use these highlights to drive more Accor Plus membership sales, focusing on measurable business outcomes.`;
 
     const res = await fetch('/api/chat', {
       method: 'POST',
@@ -2254,7 +2261,7 @@ Guidelines: Be direct, actionable, max 3 short paragraphs. Reference specific br
       body: JSON.stringify({
         model: 'gpt-4o-mini',
         messages: [{ role: 'system', content: system }, ...brockHistory],
-        max_tokens: 380, temperature: 0.65
+        max_tokens: 600, temperature: 0.35
       })
     });
     if (!res.ok) throw new Error(`API error ${res.status}`);
@@ -2297,7 +2304,7 @@ function brockToggle() {
         "\"You don't have to be great to start, but you have to start to be great.\" — Zig Ziglar",
       ];
       const quote = quotes[new Date().getDate() % quotes.length];
-      brockAddMsg('ai', `${quote}\n\nHi, I'm Brock! How can I help you today? I've read the ${tab} briefing — ask me about any market, story, or tactic.`);
+      brockAddMsg('ai', `${quote}\n\nBriefing processed (${tab}). I'm ready when you are, Jared. What's our primary target today, and what outcomes do we need to hit?`);
     }
     setTimeout(() => document.getElementById('brock-input').focus(), 300);
   }
