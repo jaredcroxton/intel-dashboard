@@ -2377,10 +2377,11 @@ async function handleGenerateVideo() {
   const originalText = btn.innerHTML;
   
   try {
-    // Create a temporary element to strip HTML tags and get clean text
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = activeBriefing.html;
-    const cleanText = tempDiv.innerText || tempDiv.textContent;
+    // Parse the HTML to safely extract just the body text without CSS/Styles
+    const doc = new DOMParser().parseFromString(activeBriefing.html, 'text/html');
+    doc.querySelectorAll('script, style').forEach(el => el.remove());
+    let cleanText = doc.body.innerText || doc.body.textContent;
+    cleanText = cleanText.replace(/\n\s*\n/g, '\n\n').trim();
     
     await navigator.clipboard.writeText(cleanText);
     
