@@ -219,11 +219,17 @@ async function main() {
       console.log('  ✓ Title set');
     }
 
-    // Paste the briefing content into the text area
-    const textArea = await page.$('textarea, [contenteditable="true"], [role="textbox"]');
+    // Paste the briefing content into the dialog's textarea
+    // The dialog shows "Paste text here" as placeholder — target that specifically
+    const textArea = await page.$('textarea[placeholder*="Paste text"], textarea[placeholder*="paste text"], textarea[placeholder*="Paste your"]')
+      || await page.$('.paste-dialog textarea, [role="dialog"] textarea')
+      || await page.$('textarea');
     if (textArea) {
+      // Click the textarea first to ensure focus
+      await textArea.click();
+      await page.waitForTimeout(300);
       await textArea.fill(briefingHtml);
-      console.log('  ✓ Briefing content pasted');
+      console.log('  ✓ Briefing content pasted into dialog textarea');
     } else {
       console.error('  ✗ Could not find text input for source content');
       await page.screenshot({ path: `/tmp/nlm-error-paste.png` });
@@ -272,21 +278,25 @@ async function main() {
 
     await page.waitForTimeout(2000);
 
-    // Click "Video Overview"
+    // Click "Video..." (the UI truncates it as "Video...")
     const videoSelectors = [
+      'text=Video',
+      'button:has-text("Video")',
       'text=Video Overview',
       'text=Video overview',
-      'button:has-text("Video")',
+      '[aria-label*="Video"]',
     ];
 
     for (const sel of videoSelectors) {
       try {
         await page.click(sel, { timeout: 5000 });
+        console.log(`  ✓ Clicked Video (selector: ${sel})`);
         break;
       } catch { /* try next */ }
     }
 
     await page.waitForTimeout(2000);
+    await page.screenshot({ path: `/tmp/nlm-03b-video-panel.png` });
 
     // Select "Explainer" mode if available
     const explainerSelectors = [
