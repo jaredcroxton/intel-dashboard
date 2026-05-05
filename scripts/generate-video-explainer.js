@@ -74,17 +74,36 @@ async function main() {
 
   // ── Step 1: Fetch the briefing HTML ──
   console.log('[1/6] Fetching briefing HTML...');
-  const briefingUrl = `${RAW_BASE}/${config.folder}/${config.filePattern(briefingDate)}`;
-  const briefingRes = await fetch(briefingUrl);
+  
+  // Try up to 14 days back to find the latest briefing
+  let briefingHtml = null;
+  let finalUrl = null;
+  let foundDate = null;
+  
+  const today = new Date(briefingDate);
+  for (let i = 0; i < 14; i++) {
+    const d = new Date(today);
+    d.setDate(d.getDate() - i);
+    const dateStr = d.toISOString().split('T')[0];
+    const briefingUrl = `${RAW_BASE}/${config.folder}/${config.filePattern(dateStr)}`;
+    
+    try {
+      const res = await fetch(briefingUrl);
+      if (res.ok) {
+        briefingHtml = await res.text();
+        finalUrl = briefingUrl;
+        foundDate = dateStr;
+        break;
+      }
+    } catch (e) {}
+  }
 
-  if (!briefingRes.ok) {
-    console.error(`  ✗ Briefing not found at: ${briefingUrl}`);
-    console.error(`  Status: ${briefingRes.status}`);
+  if (!briefingHtml) {
+    console.error(`  ✗ No briefing found in the last 14 days for ${tab}.`);
     process.exit(1);
   }
 
-  const briefingHtml = await briefingRes.text();
-  console.log(`  ✓ Fetched briefing (${(briefingHtml.length / 1024).toFixed(1)} KB)`);
+  console.log(`  ✓ Fetched briefing from ${foundDate} (${(briefingHtml.length / 1024).toFixed(1)} KB)`);
 
   // ── Step 2: Launch browser with Google session ──
   console.log('[2/6] Launching browser...');
@@ -102,8 +121,10 @@ async function main() {
     process.exit(1);
   }
 
+  const isLocal = !process.env.GOOGLE_SESSION_JSON;
   const browser = await chromium.launch({
-    headless: true,
+    headless: !isLocal,
+    channel: isLocal ? 'chrome' : undefined,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
 
@@ -122,19 +143,20 @@ async function main() {
     // Take a debug screenshot
     await page.screenshot({ path: `/tmp/nlm-01-home.png` });
 
-    // Click "New notebook" — try multiple selectors since UI may vary
+    // Click "New notebook" — NotebookLM UI uses "+ Create new"
     const newNotebookSelectors = [
-      '[aria-label="New notebook"]',
-      'button:has-text("New notebook")',
-      '[data-testid="new-notebook"]',
-      'text=New notebook',
-      'text=Create new',
+      'button:has-text("Create new")',
+      'div[role="button"]:has-text("Create new")',
+      'span:has-text("Create new")',
+      '[aria-label="Create new"]',
+      '[aria-label="Create new notebook"]',
+      'button:has-text("New notebook")'
     ];
 
     let clicked = false;
     for (const sel of newNotebookSelectors) {
       try {
-        await page.click(sel, { timeout: 5000 });
+        await page.locator(sel).first().click({ timeout: 5000 });
         clicked = true;
         console.log(`  ✓ Created new notebook (selector: ${sel})`);
         break;
