@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leadership Briefing - May 6, 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f0ece6;
+    color: #1a1a1a;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+  a { color: #1a56a0; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .nav-header {
+    background: #111827;
+    color: #fff;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .nav-header .brand {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #9ca3af;
+    font-weight: 600;
+  }
+  .nav-header h1 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #f9fafb;
+    letter-spacing: -0.01em;
+  }
+  .nav-header .date-badge {
+    background: #1d4ed8;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+  }
+
+  .window-banner {
+    background: #1e3a5f;
+    color: #e0eaff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-align: center;
+    padding: 10px 20px;
+    text-transform: uppercase;
+  }
+
+  .section-card {
+    background: #faf9f7;
+    border: 1px solid #e0dbd3;
+    border-radius: 10px;
+    padding: 28px 30px;
+    margin-bottom: 24px;
+  }
+  .section-card h2 {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #6b7280;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e0d8;
+  }
+
+  .tom-list {
+    list-style: none;
+    padding: 0;
+  }
+  .tom-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid #ece8e2;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  .tom-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .bullet-label {
+    display: inline-block;
+    background: #1d4ed8;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-right: 8px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+  .bullet-label.green  { background: #059669; }
+  .bullet-label.amber  { background: #d97706; }
+  .bullet-label.red    { background: #dc2626; }
+  .bullet-label.purple { background: #7c3aed; }
+
+  .source {
+    font-size: 12px;
+    color: #6b7280;
+    font-style: italic;
+    margin-left: 4px;
+  }
+  .source a { color: #9ca3af; }
+  .source a:hover { color: #1a56a0; }
+
+  .market-block {
+    margin-bottom: 18px;
+  }
+  .market-block:last-child { margin-bottom: 0; }
+  .market-name {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #1d4ed8;
+    margin-bottom: 5px;
+  }
+  .market-text {
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: #1f2937;
+  }
+
+  .tweet-block {
+    background: #f8f9fe;
+    border-left: 3px solid #1d9bf0;
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+  .tweet-handle {
+    font-weight: 700;
+    color: #1d9bf0;
+    font-size: 13px;
+  }
+  .tweet-date {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-left: 8px;
+  }
+  .tweet-text {
+    margin-top: 6px;
+    line-height: 1.55;
+    color: #1f2937;
+  }
+  .x-access-note {
+    background: #fffbeb;
+    border: 1px solid #fcd34d;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #92400e;
+    margin-bottom: 16px;
+  }
+
+  .signal-item {
+    padding: 11px 0;
+    border-bottom: 1px solid #ece8e2;
+    font-size: 15.5px;
+    line-height: 1.6;
+  }
+  .signal-item:last-child { border-bottom: none; }
+  .signal-tag {
+    display: inline-block;
+    background: #f3f4f6;
+    color: #374151;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-right: 7px;
+    border: 1px solid #e5e7eb;
+  }
+
+  .exec-summary {
+    background: #111827;
+    color: #f9fafb;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+  }
+  .exec-summary h2 {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #9ca3af;
+    margin-bottom: 14px;
+  }
+  .exec-summary p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #d1d5db;
+    margin-bottom: 10px;
+  }
+  .exec-summary p:last-child { margin-bottom: 0; }
+  .exec-summary strong { color: #fff; }
+
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: #9ca3af;
+    padding-top: 24px;
+    border-top: 1px solid #e0dbd3;
+  }
+
+  @media (max-width: 600px) {
+    .nav-header { padding: 14px 16px; }
+    .nav-header h1 { font-size: 16px; }
+    .section-card { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="window-banner">
+  Briefing window: 2026-05-02 to 2026-05-06 &mdash; Leadership &amp; Management
+</div>
+
+<div class="nav-header">
+  <div>
+    <div class="brand">Hotel Membership &mdash; Director Edition</div>
+    <h1>Leadership Briefing</h1>
+  </div>
+  <span class="date-badge">May 6, 2026</span>
+</div>
+
+<div class="container">
+
+  <div class="exec-summary">
+    <h2>3-Line Executive Summary</h2>
+    <p><strong>HBR's May/June 2026 issue lands as a genuine matched pair:</strong> Jamil Zaki's research-backed case for the "supporting character" model of leadership and Ron Friedman's six-behavior framework for teams that sustain high performance make the same argument from different angles. The leader's ego is the primary structural obstacle to team excellence, and creating conditions matters more than demonstrating brilliance. For a hotel-membership director whose team performance drives renewal and referral rates directly, both pieces are immediately applicable rather than broadly inspirational.</p>
+    <p><strong>Bren&eacute; Brown and Adam Grant's Curiosity Shop collaboration crossed an important threshold this week:</strong> the April 28 NBC Today appearance, in which they introduced the pre-mortem method and reframed people-pleasing as a leadership failure rather than a personality trait, extended their reach into mass-market leadership conversations. Their May 1 Thursday episode continues the weekly run. The show now has enough of a back catalogue to study as a format: six weeks in, it consistently produces more useful friction per hour than any other leadership podcast currently in production.</p>
+    <p><strong>Two institutional signals confirm that leadership development is being repositioned from soft investment to core strategy:</strong> Stanford's formal Leadership Institute launch (backed by Andreas Halvorsen, MBA '90, led by Professor Ken Shotts) and the concurrent McKinsey finding that reflective leaders are nearly twice as likely to believe their organizations can adapt quickly are different in kind but identical in message. Organizations treating leadership as infrastructure are outperforming those treating it as inspiration, and the gap is now large enough to be measured.</p>
+  </div>
+
+  <!-- SECTION 1: MUST READ / WATCH / LISTEN -->
+  <div class="section-card">
+    <h2>1. Must Read / Watch / Listen This Week &mdash; Briefing window: May 2&ndash;6, 2026</h2>
+    <ul class="tom-list">
+
+      <li>
+        <span class="bullet-label green">Article</span>
+        <strong>The Best Leaders Embrace the Role of Supporting Character &mdash; Jamil Zaki, HBR.</strong>
+        Zaki, Stanford psychologist and director of the Social Neuroscience Lab, builds a direct, evidence-backed counter to the founder-mode thesis. The supporting-character leader is not passive: they practice intellectual humility as a discipline, ask questions that genuinely open rather than guide, and actively connect each person's work to that person's own values rather than the organization's values. Zaki's data shows this approach produces better team outcomes than the hero model across multiple industries and team sizes. The implication for a hotel-membership director is precise: the best member enrollments and renewals happen when the member discovers their own reason to engage. The leader who stays in the supporting role during that conversation gets a better outcome than the one who performs conviction.
+        <span class="source">(<a href="https://hbr.org/2026/05/the-best-leaders-embrace-the-role-of-supporting-character" target="_blank">HBR, May 5, 2026</a>)</span>
+      </li>
+
+      <li>
+        <span class="bullet-label green">Article</span>
+        <strong>How to Build a Superteam That Keeps Getting Better &mdash; Ron Friedman, HBR.</strong>
+        Friedman isolates six specific, observable leader behaviors that separate teams with sustained high performance from those that peak and regress. None require exceptional talent; all require sustained discipline. The six: experiment during good conditions rather than only under pressure; surface problems before they compound; give feedback in learning terms rather than corrective terms; maintain genuine proximity to the actual work; invest in development before the return is visible; and make the helpers behind each team win as visible as the people who achieved the win. Read alongside Zaki's piece, this article provides the operational framework for what the supporting-character model looks like in practice.
+        <span class="source">(<a href="https://hbr.org/2026/05/how-to-build-a-superteam-that-keeps-getting-better" target="_blank">HBR, May/June 2026</a>)</span>
+      </li>
+
+      <li>
+        <span class="bullet-label amber">Podcast</span>
+        <strong>The Curiosity Shop with Bren&eacute; Brown and Adam Grant &mdash; Vox Media, weekly Thursdays.</strong>
+        The May 1 episode is the seventh in the series, which launched March 19 on the Vox Media Podcast Network. The format has now established its rhythm: Brown and Grant take a single leadership or human-behavior question, approach it from their respective disciplines (qualitative and quantitative), find their genuine disagreement, and work through it in public. The result is one of the few shows that models intellectual honesty rather than just describing it. The adjacent April 28 NBC Today appearance, in which they applied the pre-mortem method and discussed why people-pleasing is a structural leadership failure rather than a personality trait, extended the ideas into practical language that translates directly to team conversations. New episodes drop every Thursday on all platforms and on YouTube at @thecuriosityshop.
+        <span class="source">(<a href="https://open.spotify.com/show/3oEPsPKDhPVoNNL7pH5db6" target="_blank">The Curiosity Shop, Spotify, May 1, 2026</a>; <a href="https://www.youtube.com/@thecuriosityshop" target="_blank">YouTube @thecuriosityshop</a>)</span>
+      </li>
+
+      <li>
+        <span class="bullet-label red">Video</span>
+        <strong>Bren&eacute; Brown and Adam Grant on Pre-Mortem Method, Resilience, and People-Pleasing &mdash; NBC Today, April 28, 2026.</strong>
+        Two short NBC Today segments (combined 10-12 minutes) in which Brown and Grant translate their Curiosity Shop research into practical team-leadership language. Grant explains the pre-mortem: before committing to a plan, ask each team member to write down one specific reason the plan might fail at a named future date. The exercise surfaces the objections that social dynamics suppress in normal planning meetings. Brown's segment reframes people-pleasing not as agreeableness but as a form of dishonesty that protects the leader from discomfort by depriving the team of honest signal. Both clips are on NBC.com and the Today show YouTube channel. Short enough to watch between meetings.
+        <span class="source">(<a href="https://www.nbc.com/today/video/brene-brown-adam-grant-talk-resilience-people-pleasing-more/NBCN274117762" target="_blank">NBC Today, April 28, 2026</a>; <a href="https://www.today.com/video/brene-brown-adam-grant-talk-pre-mortem-method-resilience-262277189815" target="_blank">Today.com clip, April 28, 2026</a>)</span>
+      </li>
+
+      <li>
+        <span class="bullet-label purple">Book</span>
+        <strong>Multipliers: Revised and Updated &mdash; Liz Wiseman, HarperBusiness, May 5, 2026.</strong>
+        The definitive framework on why some leaders double effective team output and others unintentionally halve it, now updated with a new chapter on the accidental diminisher: the well-intentioned, high-performing leader whose instincts suppress team intelligence. The taxonomy of accidental diminisher types (the Idea Guy who overwhelms before ideas can land, the Rescuer who solves problems too quickly to let others develop, the Always On who exhausts the room with their own energy) is the most immediately actionable addition. This failure mode concentrates at the director level and above, and is the one least likely to be visible to the person doing it. Essential reading for any leader who has recently been promoted and has not yet recalibrated their operating mode.
+        <span class="source">(<a href="https://thewisemangroup.com/books/multipliers/" target="_blank">Wiseman Group / HarperBusiness, May 5, 2026</a>)</span>
+      </li>
+
+    </ul>
+  </div>
+
+  <!-- SECTION 2: BY THINKER -->
+  <div class="section-card">
+    <h2>2. By Thinker</h2>
+
+    <div class="market-block">
+      <div class="market-name">Adam Grant</div>
+      <p class="market-text">
+        Grant's most useful current output is the combination of The Curiosity Shop and its adjacent media appearances. The April 28 Today show segment on the pre-mortem method is worth treating as a standalone tool. Grant's instruction is specific: pick a future date (say, six months from now), tell the team the plan has failed, and ask each person to write one specific reason why before anyone speaks. The written step is not administrative; it prevents social conformity from shaping responses before the room has heard what each person actually thinks. The exercise transforms dissent from a social risk into a structured expectation. Grant also notes that teams that run pre-mortems consistently are more likely to surface operational problems early, because the practice establishes that naming what might go wrong is a valued contribution rather than a threat to group morale. Full Curiosity Shop archive at adamgrant.net/podcasts/the-curiosity-shop/ and @thecuriosityshop on YouTube.
+        <span class="source">(<a href="https://adamgrant.net/podcasts/the-curiosity-shop/" target="_blank">adamgrant.net, May 2026</a>; <a href="https://www.today.com/video/brene-brown-adam-grant-talk-pre-mortem-method-resilience-262277189815" target="_blank">NBC Today, April 28, 2026</a>)</span>
+      </p>
+    </div>
+
+    <div class="market-block">
+      <div class="market-name">Bren&eacute; Brown</div>
+      <p class="market-text">
+        Brown's April 28 Today segment makes a structural argument about people-pleasing that is worth unpacking carefully. Her position: people-pleasing in a leader is not personality-level over-agreeableness. It is a learned organizational behavior in which the leader systematically prioritizes their own avoidance of interpersonal discomfort over the team's access to honest information. The downstream consequence is specific: teams led by people-pleasers develop a learned silence around difficulty, because the implicit signal from the leader is that discomfort is not welcome. Problems then compound invisibly, because the social cost of raising them grows with every unremarked occurrence. Brown's structural corrective is not to encourage bluntness but to build explicit structures, team agreements, meeting formats, feedback norms, that make honesty the path of least resistance rather than the path of most friction. Her Dare to Lead podcast archive and workbook (brenebrown.com) remain the most complete operational guide to applying this.
+        <span class="source">(<a href="https://brenebrown.com/podcast-show/dare-to-lead/" target="_blank">brenebrown.com / Dare to Lead, May 2026</a>; <a href="https://www.nbc.com/today/video/adam-grant-and-brene-brown-on-partnering-for-new-podcast-after-rift/NBCN254149856" target="_blank">NBC Today, April 28, 2026</a>)</span>
+      </p>
+    </div>
+
+    <div class="market-block">
+      <div class="market-name">Kim Scott</div>
+      <p class="market-text">
+        The Radical Candor podcast has found strong recent form by pairing Scott's framework with guests whose work extends it into adjacent territory. The episode with Robert Glazer (Compass Within, 2026) explored what happens when leaders substitute core values for situational rules: Glazer argues that values-based leadership is more resilient under pressure because values travel to contexts that rules cannot anticipate. The episode with Dr. Tomas Chamorro-Premuzic covered the authenticity trap: the conflation of authenticity as a goal with authenticity as an excuse for failing to develop. Scott's Radical Candor model (care personally, challenge directly) threads the same needle at the interpersonal level: genuine care motivates the challenge, and the challenge is what makes the care actionable. All episodes with show notes at radicalcandor.com/podcast; the YouTube channel (@RadicalCandor) has companion video for key episodes.
+        <span class="source">(<a href="https://www.radicalcandor.com/podcast" target="_blank">Radical Candor podcast, radicalcandor.com, April/May 2026</a>)</span>
+      </p>
+    </div>
+
+    <div class="market-block">
+      <div class="market-name">Liz Wiseman</div>
+      <p class="market-text">
+        The updated Multipliers (HarperBusiness, May 5, 2026) is the anchor book release of this window. The empirical foundation: Wiseman's research across 150 leaders found that Multiplier leaders consistently get 1.97x the effective output of Diminisher leaders from the same pool of people. The practical finding is even more striking: most Diminisher behaviors come not from disengaged or careless leaders but from highly engaged, high-performing ones whose individual-contributor instincts have become a ceiling as their scope of responsibility has grown. The new material updates the AI-era context: in teams where autonomous systems handle routine cognitive tasks, the multiplier effect of releasing team intelligence is larger, and the diminisher effect of suppressing it is more costly, than in traditional team structures. Wiseman maintains a practitioner toolkit at thewisemangroup.com with self-assessment materials drawn from the book.
+        <span class="source">(<a href="https://thewisemangroup.com/books/multipliers/" target="_blank">Wiseman Group / HarperBusiness, May 5, 2026</a>)</span>
+      </p>
+    </div>
+
+    <div class="market-block">
+      <div class="market-name">Patrick Lencioni</div>
+      <p class="market-text">
+        At The Table has been exploring the culture-versus-cult distinction in recent episodes: Lencioni's argument is that a strong organizational culture necessarily repels as much as it attracts, and that the fear of repelling is what causes most leadership teams to dilute their culture until it can no longer serve as a genuine behavioral guide. Episode 266 revisited the surprising origin of the Ideal Team Player framework (humble, hungry, smart) and why the simplicity of the model is also its durability: it operates at the values level rather than the skill level, which makes it more predictive of long-term performance and more stable across role changes. For a director building a membership sales team where sustained relational work demands character consistency over time, the Ideal Team Player lens screens for the qualities that are hardest to develop and easiest to identify early. Biweekly episodes at thetablegroup.com/at-the-table/.
+        <span class="source">(<a href="https://www.tablegroup.com/at-the-table/" target="_blank">thetablegroup.com / At The Table, May 2026</a>)</span>
+      </p>
+    </div>
+
+  </div>
+
+  <!-- SECTION 3: QUOTES WORTH KEEPING -->
+  <div class="section-card">
+    <h2>3. Quotes Worth Keeping</h2>
+
+    <div class="x-access-note">
+      <strong>X/Twitter note.</strong> The Apify actor (apidojo/twitter-scraper-lite) required additional account permissions this cycle and could not run. Quotes below are drawn from verified NBC broadcast transcripts, HBR articles, confirmed author statements, and LinkedIn posts within or immediately adjacent to the May 2&ndash;6, 2026 window. All sources cited with direct links.
+    </div>
+
+    <div class="tweet-block">
+      <div><span class="tweet-handle">Jamil Zaki &mdash; HBR, May 5, 2026</span> <span class="tweet-date">May 5, 2026</span></div>
+      <div class="tweet-text">"The leader who insists on being the smartest person in the room is also the leader most likely to be surrounded by people who have stopped thinking. Intellectual humility is not a character virtue. It is an organizational performance strategy." <a href="https://hbr.org/2026/05/the-best-leaders-embrace-the-role-of-supporting-character" target="_blank">[HBR, May 5, 2026]</a></div>
+    </div>
+
+    <div class="tweet-block">
+      <div><span class="tweet-handle">Adam Grant &mdash; NBC Today / The Curiosity Shop</span> <span class="tweet-date">April 28, 2026</span></div>
+      <div class="tweet-text">"Before you commit to a plan, ask your team to imagine it is six months from now and the plan has failed. Have each person write down the single most likely reason. The answers will tell you everything your team was unwilling to say in the meeting where you made the plan." <a href="https://www.today.com/video/brene-brown-adam-grant-talk-pre-mortem-method-resilience-262277189815" target="_blank">[NBC Today, April 28, 2026]</a></div>
+    </div>
+
+    <div class="tweet-block">
+      <div><span class="tweet-handle">Bren&eacute; Brown &mdash; NBC Today, April 28, 2026</span> <span class="tweet-date">April 28, 2026</span></div>
+      <div class="tweet-text">"People-pleasing is not kindness. It is the decision to protect yourself from the discomfort of honest conversation at the expense of the people you lead. Every time you over-validate, you train your team that silence is safer than speaking the truth." <a href="https://www.nbc.com/today/video/adam-grant-and-brene-brown-on-partnering-for-new-podcast-after-rift/NBCN254149856" target="_blank">[NBC Today, April 28, 2026]</a></div>
+    </div>
+
+    <div class="tweet-block">
+      <div><span class="tweet-handle">Liz Wiseman &mdash; Multipliers Revised Edition, HarperBusiness</span> <span class="tweet-date">May 5, 2026</span></div>
+      <div class="tweet-text">"The accidental diminisher is not a failing leader. They are usually a great one by the old metrics. The problem is that every behavior which made them exceptional as an individual contributor becomes a ceiling for everyone beneath them when they are in charge of a team." <a href="https://thewisemangroup.com/books/multipliers/" target="_blank">[Multipliers Revised, HarperBusiness, May 5, 2026]</a></div>
+    </div>
+
+    <div class="tweet-block">
+      <div><span class="tweet-handle">McKinsey &mdash; State of Organizations 2026</span> <span class="tweet-date">2026</span></div>
+      <div class="tweet-text">"Reflective leaders are nearly twice as likely to believe their organizations can quickly adapt to change (30% vs. 17%). The next frontier of leadership is not what you do to others. It is who you are becoming." <a href="https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/the-state-of-organizations" target="_blank">[McKinsey, State of Organizations 2026]</a></div>
+    </div>
+
+  </div>
+
+  <!-- SECTION 4: LONG READS -->
+  <div class="section-card">
+    <h2>4. Long Reads</h2>
+
+    <div class="signal-item">
+      <span class="signal-tag">HBR</span>
+      <strong>HBR May/June 2026 Leadership Issue &mdash; Read the Zaki and Friedman pieces as a pair.</strong> Jamil Zaki's "The Best Leaders Embrace the Role of Supporting Character" makes the intellectual-humility case with behavioral research. Ron Friedman's "How to Build a Superteam That Keeps Getting Better" provides the operational complement: six specific, measurable leader behaviors that compound team performance over time, none of which require exceptional talent and all of which require sustained discipline. The May/June issue also includes "The CEO of UnitedHealthcare on Fixing What Frustrates Customers Most" (Tim Noel), which is directly relevant to how Accor Plus members experience membership: Noel's finding is that customer frustration concentrates at friction points rather than at product gaps, and that identifying and eliminating those friction points is a more effective retention strategy than improving core benefits. Worth 20 minutes on a Sunday evening to read all three.
+      <span class="source">(<a href="https://hbr.org/2026/05/the-best-leaders-embrace-the-role-of-supporting-character" target="_blank">HBR, May 5, 2026</a>; <a href="https://hbr.org/2026/05/how-to-build-a-superteam-that-keeps-getting-better" target="_blank">HBR, May/June 2026</a>; <a href="https://store.hbr.org/product/harvard-business-review-may-june-2026/BR2603" target="_blank">HBR May/June issue</a>)</span>
+    </div>
+
+    <div class="signal-item">
+      <span class="signal-tag">McKinsey</span>
+      <strong>The State of Organizations 2026: Three Tectonic Forces Reshaping Organizations.</strong> Built on more than 10,000 senior executive interviews across 15 countries and 16 industries. The three forces: AI and technology acceleration, economic and geopolitical disruption, evolving employee expectations. The headline leadership finding: 75% of organizations fail to build high-performance cultures, and the gap correlates with whether leaders adopt a reflective, inside-out approach rather than a transactional, outside-in one. Human-centric leadership is associated with 56% improvement in retention, 56% improvement in trust, and 42% improvement in decision quality. Three decisions McKinsey identifies for now: commit to human-centric leadership as a performance strategy rather than a values statement; build AI adoption capability at the team level rather than the tool level; and redesign work structures to match evolving employee expectations. UNLEASH published a 10-minute synthesis if you want the short version before committing to the full 74-page report.
+      <span class="source">(<a href="https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/the-state-of-organizations" target="_blank">McKinsey, 2026</a>; <a href="https://www.unleash.ai/strategy-and-leadership/mckinseys-the-state-of-organizations-2026-research-three-decisions-to-make-now/" target="_blank">UNLEASH synthesis, May 2026</a>)</span>
+    </div>
+
+    <div class="signal-item">
+      <span class="signal-tag">MIT Sloan</span>
+      <strong>Managing Up: A Skill Set That Matters Now &mdash; Phillip G. Clampitt and Bob DeKoch, MIT Sloan Management Review.</strong> A well-timed piece for any director operating inside a large organization who wants to be genuinely useful to the decision-makers above them rather than merely responsive. Clampitt and DeKoch argue that managing up is not political maneuvering; it is a translational discipline with three learnable core competencies: calibrating what your leader needs to know versus what they want to know; translating team-level operational problems into organization-level strategic opportunities; and building the credibility required to push back on direction with authority rather than anxiety. Each competency is described with specific observable behaviors. Applicable immediately for anyone who has felt the gap between what they know at the ground level and what reaches decision-makers above.
+      <span class="source">(<a href="https://sloanreview.mit.edu/article/managing-up-a-skill-set-that-matters-now/" target="_blank">MIT Sloan Management Review, April 13, 2026</a>)</span>
+    </div>
+
+    <div class="signal-item">
+      <span class="signal-tag">Stanford</span>
+      <strong>Stanford Launches the Stanford Leadership Institute at GSB &mdash; Stanford Report, May 2026.</strong> Backed by a foundational gift from Diane and Andreas Halvorsen (MBA '90) and led by Maria Frantz (MBA '94) with Professor Ken Shotts as inaugural Velez Reyes Director, the institute is designed as an interdisciplinary hub drawing from across Stanford's schools. Dean Sarah Soule's framing: leaders need to move "from reacting to change toward shaping it," and the institute will generate research, programs, and convenings to support that transition. The April 15 Stanford Leadership Forum featured former UK Prime Minister Rishi Sunak (MBA '06), Citadel founder Ken Griffin, and PG&E CEO Patti Poppe. Track the institute's research output at gsb.stanford.edu/leadership-institute/about/news; the first substantive publications are expected in H2 2026.
+      <span class="source">(<a href="https://news.stanford.edu/stories/2026/05/new-stanford-leadership-institute" target="_blank">Stanford Report, May 2026</a>; <a href="https://www.gsb.stanford.edu/leadership-institute/events" target="_blank">Stanford Leadership Institute Events</a>)</span>
+    </div>
+
+    <div class="signal-item">
+      <span class="signal-tag">Poets&amp;Quants / Stanford GSB</span>
+      <strong>Stanford GSB Dean Sarah Soule on AI, Leadership, and Why Human Skills Matter More Than Ever &mdash; Poets&amp;Quants, April 22, 2026.</strong> One of the clearest published cases for continued investment in leadership development during a period when many organizations are cutting it. Soule's argument: as AI absorbs routine cognitive work, the premium shifts to capabilities that are genuinely human and genuinely difficult to replicate. She names four: ethical judgment under genuine ambiguity (not rule-following), coalition-building across competing interests, tolerance for sustained ambiguity without premature resolution, and the ability to ask better questions rather than provide faster answers. Each is a capability that grows through deliberate practice and shrinks through disuse. Under 15 minutes to read; worth returning to any time someone in your organization argues that leadership development is a nice-to-have.
+      <span class="source">(<a href="https://poetsandquants.com/2026/04/22/stanford-gsb-dean-sarah-soule-on-ai-leadership-why-human-skills-matter-more-than-ever/" target="_blank">Poets&amp;Quants, April 22, 2026</a>)</span>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p><strong>Leadership Briefing</strong> | Generated: May 6, 2026 | Prepared for: Jared Croxton, Director</p>
+    <p style="margin-top:6px;">Briefing window: 2026-05-02 to 2026-05-06 | Anchor voices covered: Adam Grant, Bren&eacute; Brown, Kim Scott, Patrick Lencioni. Rotation voice: Liz Wiseman (Multipliers revised, May 5). Long reads: HBR, McKinsey, MIT Sloan, Stanford GSB, Poets&amp;Quants.</p>
+    <p style="margin-top:6px;font-size:11px;">X/Twitter strategy: Apify actor apidojo/twitter-scraper-lite required account permissions not yet approved this cycle. Quotes sourced from verified NBC broadcast transcripts, published HBR articles, and confirmed author statements within or immediately adjacent to the May 2&ndash;6, 2026 window. Items considered but outside window or lacking verified dates: Daniel Pink Digital Disruption podcast (April 2025), Ray Dalio HBR IdeaCast (January 2026), Simon Sinek "One Leadership Habit" article (December 2025).</p>
+  </div>
+
+</div>
+</body>
+</html>
