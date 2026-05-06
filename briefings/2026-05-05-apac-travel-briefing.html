@@ -3,608 +3,438 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="article:published_time" content="2026-05-05T00:00:00Z">
 <title>APAC Travel Briefing, 2026-05-05</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f0ede8;
+    color: #1a1a1a;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+  /* NAV HEADER */
+  .nav-header {
+    background: #111827;
+    color: #fff;
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .nav-header .brand {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9ca3af;
+  }
+  .nav-header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+  .nav-header .nav-date {
+    font-size: 13px;
+    color: #9ca3af;
+    white-space: nowrap;
+  }
+  /* WRAPPER */
+  .wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 16px 64px;
+  }
+  /* EYEBROW */
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  /* CARDS */
+  .card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    border: 1px solid #e5e0d8;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #111827;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e5e0d8;
+  }
+  /* SECTION LABELS */
+  .section-num {
+    display: inline-block;
+    background: #111827;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 9px;
+    border-radius: 4px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  /* BULLET LIST */
+  ul.bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  ul.bullets li {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0ede8;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  ul.bullets li:last-child { border-bottom: none; }
+  ul.bullets li::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #111827;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  /* MARKET GROUP */
+  .market-group {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0ede8;
+  }
+  .market-group:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .market-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 8px;
+  }
+  .market-group p, .market-group ul { font-size: 16px; }
+  /* QUIET */
+  .quiet {
+    color: #9ca3af;
+    font-style: italic;
+    font-size: 15px;
+  }
+  /* TWEET BOX */
+  .tweet-box {
+    background: #f8f7f5;
+    border-left: 3px solid #111827;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+  .tweet-box .handle {
+    font-weight: 700;
+    color: #111827;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  .tweet-box .tweet-text { line-height: 1.6; color: #374151; }
+  .tweet-box .tweet-link { font-size: 13px; color: #6b7280; margin-top: 6px; }
+  .tweet-box .tweet-link a { color: #4b5563; }
+  /* COMPETITOR ROW */
+  .comp-row {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0ede8;
+    font-size: 16px;
+  }
+  .comp-row:last-child { border-bottom: none; }
+  .comp-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: #374151;
+    margin-bottom: 3px;
+    letter-spacing: 0.02em;
+  }
+  /* LINKS */
+  a { color: #374151; text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { color: #111827; }
+  /* SIGNAL ROWS */
+  .signal-row {
+    padding: 11px 0;
+    border-bottom: 1px solid #f0ede8;
+    font-size: 16px;
+  }
+  .signal-row:last-child { border-bottom: none; }
+  /* ALERT BOX */
+  .alert-box {
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 15px;
+    margin-bottom: 16px;
+    color: #92400e;
+  }
+  .alert-box strong { color: #78350f; }
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    font-size: 13px;
+    color: #9ca3af;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid #e5e0d8;
+  }
+  /* MOBILE */
+  @media (max-width: 600px) {
+    .nav-header { flex-direction: column; align-items: flex-start; }
+    .card { padding: 20px 18px; border-radius: 8px; }
+  }
+</style>
 </head>
-<body style="margin:0;padding:0;background-color:#f0ede8;font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:17px;line-height:1.65;color:#2a2a2a;">
+<body>
 
-<!-- HEADER -->
-<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#1a1f2e;">
-  <tr>
-    <td style="padding:28px 40px 24px 40px;">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td>
-            <div style="color:#8b9bb4;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">ACCOR PLUS INTELLIGENCE</div>
-            <div style="color:#ffffff;font-size:24px;font-weight:700;letter-spacing:-0.3px;">APAC Travel &amp; Hotel Briefing</div>
-            <div style="color:#a8b4c8;font-size:13px;margin-top:6px;">Tuesday, 5 May 2026 &nbsp;|&nbsp; Prepared for Jared Croxton</div>
-          </td>
-          <td style="text-align:right;vertical-align:bottom;">
-            <div style="background-color:#2d3550;border:1px solid #3d4a6a;border-radius:6px;padding:8px 16px;">
-              <div style="color:#8b9bb4;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;">Briefing Window</div>
-              <div style="color:#e8ecf4;font-size:13px;font-weight:600;margin-top:2px;">2026-04-28 to 2026-05-05</div>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
+<!-- NAV HEADER -->
+<div class="nav-header">
+  <div>
+    <div class="brand">Accor Plus Intelligence</div>
+    <h1>APAC Travel Briefing</h1>
+  </div>
+  <div class="nav-date">Tuesday 5 May 2026 &nbsp;|&nbsp; For Jared Croxton</div>
+</div>
 
-<!-- CONTENT WRAPPER -->
-<table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr>
-    <td style="padding:32px 24px 48px 24px;">
-      <table width="860" cellpadding="0" cellspacing="0" border="0" align="center">
-        <tr>
-          <td>
+<div class="wrapper">
 
-      <!-- SECTION 1: TOP OF MIND -->
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;border-radius:10px;margin-bottom:24px;">
-        <tr>
-          <td style="padding:28px 32px 28px 32px;">
-            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7c6d9e;margin-bottom:6px;">01 / Top of Mind</div>
-            <h2 style="margin:0 0 4px 0;font-size:20px;font-weight:700;color:#1a1f2e;">Five stories driving your week</h2>
-            <div style="font-size:12px;color:#9aa3b0;margin-bottom:22px;border-bottom:1px solid #f0ede8;padding-bottom:16px;">Briefing window: 2026-04-28 to 2026-05-05</div>
+<!-- ===== SECTION 1: TOP OF MIND ===== -->
+<div class="card">
+  <div class="eyebrow">Briefing window: 2026-04-28 to 2026-05-05</div>
+  <h2><span class="section-num">01</span> Top of Mind</h2>
+  <ul class="bullets">
+    <li>
+      <strong>Skift Asia Forum confirms the membership pitch.</strong> At the Skift Asia Forum in Bangkok (April 28-29), Accor CDO Andrew Langdon put a number on what you already know: hotel owners who convert to a global brand add 15-20% to top-line revenue, driven by distribution and loyalty. Asia is still 80% unbranded, and a generational handover from founders to children who do not want to operate is accelerating conversion. Your membership product sits at exactly this intersection. Rajeev Menon (Marriott) added that Bonvoy fills 75% of occupied rooms across 750 APAC hotels, which shows the demand floor loyalty creates. (<a href="https://skift.com/2026/04/29/accor-on-hotel-competition-at-skift-asia-forum-2026/" target="_blank">Skift, 29 Apr 2026</a>; <a href="https://skift.com/2026/04/29/marriotts-rajeev-menon-and-mandarin-orientals-alex-schellenberger-at-skift-asia-forum-2026/" target="_blank">Skift, 29 Apr 2026</a>)
+    </li>
+    <li>
+      <strong>Golden Week compression is extreme across three markets simultaneously.</strong> Macau set an all-time single-day visitor record of 247,729 on May 2. Korea's Gangneung hotels went from 82,000 won to 607,000 won per night (seven times the base rate) for the new five-day Labor Day break. Vietnam's Hue reached 99% average occupancy for the April 30-May 3 holiday, with revenue up 85% year-on-year. This proves the case for locking in Accor Plus rates before peak periods, when open-market pricing becomes punishing. (<a href="https://macaubusiness.com/macau-tourist-arrivals-hit-all-time-single-day-record-of-nearly-248000/" target="_blank">Macau Business, May 2026</a>; <a href="https://www.asiae.co.kr/en/article/2026042816410345115" target="_blank">Asian Business Daily, 28 Apr 2026</a>; <a href="https://en.vietnamplus.vn/international-arrivals-to-hue-surge-during-april-30-may-1-holiday-post342103.vnp" target="_blank">VietnamPlus, May 2026</a>)
+    </li>
+    <li>
+      <strong>China's May Day turned inward.</strong> Nearly 1.52 billion domestic trips are underway for the five-day May Day holiday, up 4% year-on-year, with hotel occupancy nationwide approaching 90%. However, multiple carriers cut or suspended China-Southeast Asia routes (Bangkok, Phuket, Kuala Lumpur), meaning the outbound wave that normally floods APAC leisure markets is not materializing this cycle. Hotels in Thailand and Malaysia are absorbing the shortfall through rate cuts. Australia, Japan, and Korea are seeing cleaner demand because they are drawing from different source markets. (<a href="https://www.globaltimes.cn/page/202604/1359573.shtml" target="_blank">Global Times, Apr-May 2026</a>; <a href="https://www.travelweekly-asia.com/Travel-News/Travel-Trends/China-s-May-Day-travel-boom-skips-Southeast-Asia-this-year" target="_blank">Travel Weekly Asia, May 2026</a>)
+    </li>
+    <li>
+      <strong>AHICE opens today in Adelaide with record investment signals.</strong> The Asia Pacific Hotel Industry Conference and Exhibition runs May 5-7 at Adelaide Oval with 1,600-plus delegates and 250 speakers. South Australian Premier Peter Malinauskas addressed delegates today, applauding a record pipeline of 15 hotels in development across Adelaide, 11 of them in the CBD. A groundbreaking ceremony for Hilton Adelaide East End was held at the start of the conference. Australia is in an active build cycle that will expand Accor Plus inventory. (<a href="https://www.hotelmanagement.com.au/2026/05/05/ahice-malinauskas-applauds-record-investment-in-adelaide-hotel-sector/" target="_blank">Hotel Management AU, 5 May 2026</a>; <a href="https://www.hotelmanagement.com.au/2026/04/29/final-call-for-ahice-asia-pacific-2026-tickets/" target="_blank">Hotel Management AU, 29 Apr 2026</a>)
+    </li>
+    <li>
+      <strong>IHG 5,000-point deadline is tomorrow.</strong> IHG One Rewards is running a promotion offering 5,000 bonus points per every two qualifying nights (April 21-June 21) in Asia, Africa, and the Middle East. Registration closes May 6. This is the most time-sensitive competitor move in the window: if prospects are weighing up IHG loyalty against an Accor Plus membership today, make sure you can counter with the Accor Plus value stack. (<a href="https://awardwallet.com/news/ihg-one-rewards/current-ihg-promotion/" target="_blank">AwardWallet, May 2026</a>)
+    </li>
+  </ul>
+</div>
 
-            <!-- Bullet 1 -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
-              <tr>
-                <td width="32" style="vertical-align:top;padding-top:2px;">
-                  <div style="width:22px;height:22px;background-color:#7c6d9e;border-radius:50%;text-align:center;line-height:22px;color:#fff;font-size:11px;font-weight:700;">1</div>
-                </td>
-                <td style="padding-left:10px;">
-                  <div style="font-weight:700;color:#1a1f2e;font-size:16px;margin-bottom:5px;">Hyatt Q1 2026: Greater China RevPAR +12.4%, rest of APAC +11.3%</div>
-                  <div style="color:#4a5568;font-size:15px;">Hyatt first-quarter results confirm APAC is the fastest-growing hotel region globally right now. Greater China RevPAR grew 12.4% year-on-year, while APAC excluding China rose 11.3%. System-wide RevPAR increased 5.4%. Management said it expects "very strong" APAC performance for H2 2026. Stronger RevPAR prints give hotel owners pricing confidence and make the cost-certainty argument for Accor Plus memberships easier to close. Source: <a href="https://newsroom.hyatt.com/Q1-2026-Earnings" style="color:#7c6d9e;text-decoration:none;font-weight:600;">Hyatt Newsroom, 30 Apr 2026</a></div>
-                </td>
-              </tr>
-            </table>
+<!-- ===== SECTION 2: MARKET MOVERS ===== -->
+<div class="card">
+  <h2><span class="section-num">02</span> Market Movers</h2>
 
-            <!-- Bullet 2 -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
-              <tr>
-                <td width="32" style="vertical-align:top;padding-top:2px;">
-                  <div style="width:22px;height:22px;background-color:#7c6d9e;border-radius:50%;text-align:center;line-height:22px;color:#fff;font-size:11px;font-weight:700;">2</div>
-                </td>
-                <td style="padding-left:10px;">
-                  <div style="font-weight:700;color:#1a1f2e;font-size:16px;margin-bottom:5px;">Skift Asia Forum 2026 Bangkok: industry converges on brand conversion as the next big growth lever</div>
-                  <div style="color:#4a5568;font-size:15px;">450+ travel leaders gathered at Avani+ Riverside Bangkok on April 28-29. Central theme: Asia's hotel market is still 80% unbranded, and a generational ownership handover is pushing independent hotels toward global brand deals. Accor CDO Andrew Langdon said a conversion to an Accor brand activates distribution within weeks and lifts top-line revenue by 15-20%. Marriott President APAC Rajeev Menon confirmed Marriott is spending hundreds of millions on loyalty tech to push members toward direct bookings. Hilton President APAC Alan Watts announced 8 new luxury brand debuts in 2026. Sources: <a href="https://skift.com/2026/04/29/accor-on-hotel-competition-at-skift-asia-forum-2026/" style="color:#7c6d9e;text-decoration:none;font-weight:600;">Skift, 29 Apr 2026</a> / <a href="https://skift.com/2026/04/29/marriotts-rajeev-menon-and-mandarin-orientals-alex-schellenberger-at-skift-asia-forum-2026/" style="color:#7c6d9e;text-decoration:none;font-weight:600;">Skift, 29 Apr 2026</a></div>
-                </td>
-              </tr>
-            </table>
+  <div class="market-group">
+    <div class="market-label">Australia / New Zealand</div>
+    <ul class="bullets">
+      <li>AHICE Asia Pacific 2026 is live in Adelaide today (May 5-7). Premier Malinauskas confirmed 15 hotel projects in development across the city including 11 in the CBD, calling it a "record moment" for South Australian hospitality investment. A groundbreaking ceremony for <strong>Hilton Adelaide East End</strong> was held on-site at AHICE this morning. (<a href="https://www.hotelmanagement.com.au/2026/05/05/ahice-malinauskas-applauds-record-investment-in-adelaide-hotel-sector/" target="_blank">Hotel Management AU, 5 May 2026</a>)</li>
+      <li>Sydney RevPAR sits at <strong>$126.81 AUD</strong> (up 4.34% year-on-year) with occupancy around 67.7% overall. Weekend ADR reaches $199 AUD, showing strong compression on non-weekday nights, a pattern that rewards advance bookings via membership. (<a href="https://revpargenius.com/insights/sydney-hotel-demand-analysis-2026" target="_blank">RevPARGenius, May 2026</a>)</li>
+      <li>Accor is expanding its New Zealand portfolio with new lifestyle hotel brands, following the Pullman Hamilton (191 keys) pipeline, timed to coincide with the resumption of international flights into Hamilton after a 13-year gap. (<a href="https://www.hospitalitynet.org/news/4129561.html" target="_blank">Hospitalitynet, May 2026</a>)</li>
+    </ul>
+  </div>
 
-            <!-- Bullet 3 -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
-              <tr>
-                <td width="32" style="vertical-align:top;padding-top:2px;">
-                  <div style="width:22px;height:22px;background-color:#7c6d9e;border-radius:50%;text-align:center;line-height:22px;color:#fff;font-size:11px;font-weight:700;">3</div>
-                </td>
-                <td style="padding-left:10px;">
-                  <div style="font-weight:700;color:#1a1f2e;font-size:16px;margin-bottom:5px;">Hilton enters 8 new luxury and lifestyle brand markets across APAC simultaneously</div>
-                  <div style="color:#4a5568;font-size:15px;">Hilton announced the biggest brand-debut wave in its APAC history: Nomad Singapore, Signia by Hilton Tainan, Canopy Bangkok, Waldorf Astoria Kuala Lumpur, Conrad Kuala Lumpur, Curio Collection Bengaluru, LXR Hotels Bengaluru, and Tapestry Collection Hoi An. All opening in 2026, with 15+ luxury/lifestyle launches total. Hilton's stated goal: exceed 250 luxury and lifestyle hotels in APAC. This is direct competition for Accor's premium brands, but also a market signal that luxury accommodation density is rising, which increases the multi-property membership value proposition. Sources: <a href="https://stories.hilton.com/apac/releases/hilton-to-exceed-250-luxury-and-lifestyle-hotels-in-asia-pacific" style="color:#7c6d9e;text-decoration:none;font-weight:600;">Hilton Stories APAC, 29 Apr 2026</a> / <a href="https://www.hotelmanagement.com.au/2026/04/29/wave-of-brand-debuts-in-asia-pacific-for-hilton/" style="color:#7c6d9e;text-decoration:none;font-weight:600;">Hotel Management Australia, 29 Apr 2026</a></div>
-                </td>
-              </tr>
-            </table>
+  <div class="market-group">
+    <div class="market-label">Japan</div>
+    <p class="quiet">Quiet this window. No new performance data or brand news published within April 28-May 5. Note: Japan's departure tax triples to JPY 3,000 on July 1, 2026, which will affect pre-travel cost perception for inbound visitors.</p>
+  </div>
 
-            <!-- Bullet 4 -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
-              <tr>
-                <td width="32" style="vertical-align:top;padding-top:2px;">
-                  <div style="width:22px;height:22px;background-color:#7c6d9e;border-radius:50%;text-align:center;line-height:22px;color:#fff;font-size:11px;font-weight:700;">4</div>
-                </td>
-                <td style="padding-left:10px;">
-                  <div style="font-weight:700;color:#1a1f2e;font-size:16px;margin-bottom:5px;">Korea Golden Holiday: hotels at 7x normal ADR, 95%+ occupancy across Seoul and resorts</div>
-                  <div style="color:#4a5568;font-size:15px;">South Korea's extended May 1-4 holiday triggered a supply shock. The Shilla Seoul hit KRW 1.86 million per night versus a typical KRW 600,000. Skybay Hotel Gyeongpo surged from KRW 82,000 to KRW 607,000. Lotte resort properties reached 95%+ occupancy. Over 100,000 Chinese visitors are expected for the period, up 22-32% YoY. Korea's hotel supply shortage is structural. Your Accor Plus members pay member rates, not surge pricing. That is a live sales story right now. Source: <a href="https://www.asiae.co.kr/en/article/2026042816410345115" style="color:#7c6d9e;text-decoration:none;font-weight:600;">Asia Business Daily, 28 Apr 2026</a></div>
-                </td>
-              </tr>
-            </table>
+  <div class="market-group">
+    <div class="market-label">Korea</div>
+    <ul class="bullets">
+      <li>Korea's new five-day Golden Week (May 1 now designated a statutory Labor Day holiday) has created the first proper May compression event in the country's hospitality calendar. Gangneung's Skybay Hotel Gyeongpo went from 82,000 won per night to 607,000 won, a seven-times increase. Properties across the peninsula are at or near full occupancy. (<a href="https://www.asiae.co.kr/en/article/2026042816410345115" target="_blank">Asian Business Daily, 28 Apr 2026</a>)</li>
+      <li>Chinese arrivals for the Golden Week period are running 22-32% ahead of last year. Japanese arrivals up 18-20% versus prior year. Total Q1 2026 foreign arrivals reached 4.76 million, up 23%, with March alone hitting 2.06 million. BTS comeback and K-pop content are the primary demand drivers. (<a href="https://www.travelandtourworld.com/news/article/china-overtakes-us-japan-taiwan-thailand-vietnam-and-others-to-drive-south-korea-tourism-boom-2026-with-record-tourist-arrivals-amid-bts-comeback-and-k-pop-surge-as-asia-travel-reaches-record-with/" target="_blank">Travel and Tour World, May 2026</a>)</li>
+    </ul>
+  </div>
 
-            <!-- Bullet 5 -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <td width="32" style="vertical-align:top;padding-top:2px;">
-                  <div style="width:22px;height:22px;background-color:#7c6d9e;border-radius:50%;text-align:center;line-height:22px;color:#fff;font-size:11px;font-weight:700;">5</div>
-                </td>
-                <td style="padding-left:10px;">
-                  <div style="font-weight:700;color:#1a1f2e;font-size:16px;margin-bottom:5px;">China May Day 2026: 1.52 billion cross-regional trips, outbound hotel bookings to Australia doubled</div>
-                  <div style="color:#4a5568;font-size:15px;">The five-day May Day holiday (May 1-5) is tracking as China's highest-volume travel period ever: 1.52 billion cross-regional trips, up 4% YoY. Outbound multi-day tour bookings rose 50%. Hotel bookings to Australia, Spain, and Turkey more than doubled YoY. Daily inbound/outbound passenger flows peaked above 2.4 million. This outbound surge flows directly into Accor Plus properties in Japan, Australia, Singapore, Thailand, and Vietnam over May-June. Sources: <a href="https://www.globaltimes.cn/page/202604/1359573.shtml" style="color:#7c6d9e;text-decoration:none;font-weight:600;">Global Times, 30 Apr 2026</a> / <a href="https://www.travelandtourworld.com/news/article/tourism-surge-in-china-may-day-2026-holidays-mark-record-breaking-domestic-travel-and-new-consumption-models-reshaping-the-future-of-travel/" style="color:#7c6d9e;text-decoration:none;font-weight:600;">Travel &amp; Tour World, 1 May 2026</a></div>
-                </td>
-              </tr>
-            </table>
+  <div class="market-group">
+    <div class="market-label">Greater China (incl. HK / Taiwan)</div>
+    <ul class="bullets">
+      <li><strong>Macau broke its all-time single-day visitor record on May 2</strong>: 247,729 arrivals, up 9.25% on the previous record set during Chinese New Year. The first three days of Golden Week brought 630,000-plus visitors. Authorities had forecast a peak of 740,000 daily cross-border movements; the city is tracking close to that ceiling. Mainland Chinese visitors account for 85% of arrivals. (<a href="https://asgam.com/2026/05/04/macau-welcomes-over-630000-visitor-arrivals-in-first-three-days-of-golden-week-as-saturday-sets-new-single-day-arrival-record/" target="_blank">ASGAM, 4 May 2026</a>; <a href="https://macaudailytimes.com.mo/macau-sets-three-border-crossing-records-as-may-day-golden-week-boosts-tourism.html" target="_blank">Macau Daily Times, May 2026</a>)</li>
+      <li>Hong Kong is experiencing a powerful Golden Week surge, with Tsim Sha Tsui, Yau Ma Tei, and Victoria Harbour drawing close to one million visitors across the holiday period. (<a href="https://www.travelandtourworld.com/news/article/hong-kong-and-mainland-china-witness-powerful-golden-week-travel-surge-as-tsim-sha-tsui-yau-ma-tei-and-victoria-harbour-draw-nearly-one-million-visitors/" target="_blank">Travel and Tour World, May 2026</a>)</li>
+      <li>Nationally, China's May Day domestic hotel occupancy is near 90%, with travel reservations up 28% year-on-year. Small-city and county-level destinations are the standout growth segment. (<a href="https://www.globaltimes.cn/page/202604/1359573.shtml" target="_blank">Global Times, Apr-May 2026</a>)</li>
+    </ul>
+  </div>
 
-          </td>
-        </tr>
-      </table>
-      <!-- END SECTION 1 -->
+  <div class="market-group">
+    <div class="market-label">Southeast Asia (Singapore, Thailand, Vietnam, Indonesia, Malaysia, Philippines)</div>
+    <ul class="bullets">
+      <li><strong>Vietnam is the undisputed regional outperformer.</strong> Hue logged 610,000 visitors and 99% average occupancy during the April 30-May 3 holiday, with tourism revenue up 85% year-on-year to 1.35 trillion VND (~USD 51M). Hanoi received 1.35 million visitors over the same period, with total receipts topping 5 trillion VND (~USD 190M). Vietnam reached 8.8 million foreign arrivals in the first four months of 2026, the first time any four-month stretch has exceeded two million arrivals each month. (<a href="https://en.vietnamplus.vn/international-arrivals-to-hue-surge-during-april-30-may-1-holiday-post342103.vnp" target="_blank">VietnamPlus, May 2026</a>; <a href="https://www.travelandtourworld.com/news/article/vietnam-tourism-soars-in-2026-as-foreign-visitor-arrivals-reach-8-8-million-in-record-breaking-first-four-months-all-you-need-to-know/" target="_blank">Travel and Tour World, May 2026</a>)</li>
+      <li>Singapore RevPAR rose 4.8% to S$228.45 in Q1 2026, with February up 10.3% year-on-year. International arrivals hit 4.4 million for the quarter, up 2.8%. Varel Singapore opened in April 2026 on the Selegie Centre site. STB projects 17-18 million arrivals for full-year 2026. (<a href="https://www.travelandtourworld.com/news/article/singapore-tourism-soars-in-q1-2026-despite-global-strife-whats-driving-record-growth-and-whats-next-for-travel/" target="_blank">Travel and Tour World, May 2026</a>)</li>
+      <li>China's May Day outbound wave has largely bypassed Southeast Asia this cycle. Air China, China Eastern, Spring Airlines, and AirAsia have reduced or suspended services to Bangkok, Phuket, and Kuala Lumpur. Reduced Chinese demand is pushing Bangkok and Malaysian hotels to cut rates. Labour Day intra-APAC bookings are still up 15% overall, driven by India, Korea, Singapore, and Australia rather than China. (<a href="https://www.travelweekly-asia.com/Travel-News/Travel-Trends/China-s-May-Day-travel-boom-skips-Southeast-Asia-this-year" target="_blank">Travel Weekly Asia, May 2026</a>; <a href="https://www.travelandtourworld.com/news/article/singapore-and-china-joins-thailand-malaysia-indonesia-and-the-philippines-in-experiencing-a-15-growth-in-international-travel-during-the-labour-day-holiday-with-multi-destination-trips-and-popular/" target="_blank">Travel and Tour World, May 2026</a>)</li>
+      <li>Philippines underperformed all Southeast Asian peers on international arrivals in April 2026, trailing Thailand, Indonesia, Malaysia, and Vietnam. The ASEAN Summit meets in Cebu (May 6-8), which will create a short-burst MICE spike but does not address the structural shortfall. (<a href="https://www.travelandtourworld.com/news/article/philippines-underperforms-than-thailand-indonesia-and-vietnam-with-lowest-international-tourist-arrivals-in-april-2026-new-updates-about-the-reason-you-need-to-know/" target="_blank">Travel and Tour World, May 2026</a>)</li>
+    </ul>
+  </div>
 
-      <!-- SECTION DIVIDER -->
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:24px;">
-        <tr><td style="height:1px;background-color:#e0dbd4;"></td></tr>
-      </table>
+  <div class="market-group">
+    <div class="market-label">India</div>
+    <ul class="bullets">
+      <li>India's national hotel RevPAR is up 11% year-on-year in 2026, with ADR rising 8.7%. Room rates are expected to reach INR 9,400-9,700 this year, driven by domestic tourism (40% growth to 4.1 billion visits in 2025) continuing into 2026. (<a href="https://www.travelandtourworld.com/news/article/indias-hotel-sector-set-for-rate-appreciation-amid-surging-demand-through-2026/" target="_blank">Travel and Tour World, May 2026</a>)</li>
+      <li>Kashmir tourism remains deeply depressed, one year on from the Pahalgam attack (April 2025). Properties that previously ran at 70-80% occupancy are sitting at 40-45%. Hotel bookings in the region are running at around 30% of prior levels. Industry bodies are calling for government intervention. Inbound international bookings for broader India are also watching geopolitical signals closely. (<a href="https://www.nomadlawyer.org/kashmir-tourism-struggles-april-2026" target="_blank">Nomad Lawyer, Apr 2026</a>)</li>
+    </ul>
+  </div>
 
-      <!-- SECTION 2: MARKET MOVERS -->
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;border-radius:10px;margin-bottom:24px;">
-        <tr>
-          <td style="padding:28px 32px 28px 32px;">
-            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3a7d6b;margin-bottom:6px;">02 / Market Movers</div>
-            <h2 style="margin:0 0 20px 0;font-size:20px;font-weight:700;color:#1a1f2e;">Performance prints, openings, M&amp;A, and leadership</h2>
+  <div class="market-group">
+    <div class="market-label">Pacific Islands</div>
+    <p class="quiet">Quiet.</p>
+  </div>
 
-            <!-- Australia/NZ -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:22px;">
-              <tr>
-                <td style="border-left:4px solid #3a7d6b;padding-left:16px;">
-                  <div style="font-weight:700;font-size:14px;color:#1a1f2e;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">Australia / New Zealand</div>
-                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                    <tr>
-                      <td style="padding-bottom:10px;">
-                        <div style="color:#4a5568;font-size:15px;"><strong>ABS February 2026 data:</strong> 943,220 short-term visitor arrivals, up 19.7% year-on-year. China is the largest source at 23.3% of all arrivals. National hotel occupancy holds at 72.6%, ADR at AUD 250.65. The March 2026 data is scheduled for release on May 12. Source: <a href="https://www.abs.gov.au/statistics/industry/tourism-and-transport/overseas-arrivals-and-departures-australia/latest-release" style="color:#3a7d6b;text-decoration:none;font-weight:600;">ABS, published Apr 2026</a></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="padding-bottom:10px;">
-                        <div style="color:#4a5568;font-size:15px;"><strong>Australian Tourism Exchange (ATE26)</strong> scheduled for the Adelaide Convention Centre, May 10-14. The country's major B2B inbound marketplace. Watch for new route and partnership announcements that will flow into additional hotel room nights. Source: <a href="https://www.tourism.australia.com/en/news-and-events/events/tourism-australia-industry-events/ate-2026.html" style="color:#3a7d6b;text-decoration:none;font-weight:600;">Tourism Australia, 2026</a></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div style="color:#4a5568;font-size:15px;"><strong>Route expansion:</strong> 56 new international airline routes committed for 2026 projected to generate 1.9 million additional hotel room nights nationally and lift average occupancy by 3.4 percentage points. Source: <a href="https://www.developmentready.com.au/content-hub/article/flight-surge-to-fuel-hotel-demand-in-key-tourism-markets" style="color:#3a7d6b;text-decoration:none;font-weight:600;">Development Ready, 2026</a></div>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
+</div>
 
-            <!-- Japan -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:22px;">
-              <tr>
-                <td style="border-left:4px solid #c4752a;padding-left:16px;">
-                  <div style="font-weight:700;font-size:14px;color:#1a1f2e;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">Japan</div>
-                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                    <tr>
-                      <td style="padding-bottom:10px;">
-                        <div style="color:#4a5568;font-size:15px;">Hyatt Q1 APAC ex-China RevPAR +11.3% confirms Japan hotel trading remains strong despite a softening in Chinese visitor volumes. JTB forecasts total 2026 inbound at 41.4 million, down 2.8% from 2025's record, dragged by fewer Chinese arrivals. Total tourism spending is still projected to rise. ADR-led growth model intact. Source: <a href="https://newsroom.hyatt.com/Q1-2026-Earnings" style="color:#c4752a;text-decoration:none;font-weight:600;">Hyatt Newsroom, 30 Apr 2026</a> / <a href="https://asia.nikkei.com/business/travel-leisure/foreign-visitors-to-japan-to-drop-3-in-2026-dragged-by-fewer-chinese" style="color:#c4752a;text-decoration:none;font-weight:600;">Nikkei Asia, 2026</a></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div style="color:#4a5568;font-size:15px;">Tokyo and Kyoto luxury/upscale properties continue to see elevated ADR driven by strong Western and Southeast Asian visitor demand. Japan's departure tax tripling from July 1 adds friction to short-stay itineraries (see Policy section).</div>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
+<!-- ===== SECTION 3: X CHATTER ===== -->
+<div class="card">
+  <h2><span class="section-num">03</span> X Chatter</h2>
+  <p style="font-size:14px;color:#6b7280;margin-bottom:16px;font-style:italic;">X strategy used: WebSearch with site:x.com and direct URL resolution. Direct scraping blocked. Two confirmed posts retrieved.</p>
 
-            <!-- Korea -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:22px;">
-              <tr>
-                <td style="border-left:4px solid #d44d3f;padding-left:16px;">
-                  <div style="font-weight:700;font-size:14px;color:#1a1f2e;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">Korea</div>
-                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                    <tr>
-                      <td style="padding-bottom:10px;">
-                        <div style="color:#4a5568;font-size:15px;"><strong>Golden Holiday week (May 1-4):</strong> 95%+ occupancy at major Seoul and resort hotels. ADR at up to 7x normal levels. Only premium rooms above KRW 2-3 million per night remained available. The Shilla Seoul: KRW 1.86M vs typical KRW 600K. Lotte resorts near fully booked. Source: <a href="https://www.asiae.co.kr/en/article/2026042816410345115" style="color:#d44d3f;text-decoration:none;font-weight:600;">Asia Business Daily, 28 Apr 2026</a></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="padding-bottom:10px;">
-                        <div style="color:#4a5568;font-size:15px;"><strong>Inbound surge:</strong> 80,000-90,000 Japanese and 100,000-110,000 Chinese visitors projected for the holiday period, up 18-22% and 22-32% respectively YoY. Cross-border travel between Korea, Japan, and China is structurally growing.</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div style="color:#4a5568;font-size:15px;"><strong>Strategic context:</strong> KTO President Park Sung-hyeuck targeting 30 million visitors by 2028. Korea's hotel supply shortage means sustained pricing power, and your members benefit from rate certainty. Source: <a href="https://www.koreatimes.co.kr/amp/lifestyle/travel-food/20260202/koreas-new-tourism-chief-targets-30-mil-visitors-by-2028" style="color:#d44d3f;text-decoration:none;font-weight:600;">Korea Times, Feb 2026</a></div>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
+  <div class="tweet-box">
+    <div class="handle">@Skift</div>
+    <div class="tweet-text">"Asia is driving global travel growth, and the strategy conversations are already underway. At the Skift Asia Forum 2026, leaders across aviation, hospitality, destinations, and travel tech gather for candid discussions on scaling growth, reinvention, partnerships, and what's next."</div>
+    <div class="tweet-link">Posted around April 28-29, 2026 &mdash; <a href="https://x.com/skift/status/2029142590205882510" target="_blank">x.com/skift/status/2029142590205882510</a></div>
+  </div>
 
-            <!-- Greater China -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:22px;">
-              <tr>
-                <td style="border-left:4px solid #b83c5a;padding-left:16px;">
-                  <div style="font-weight:700;font-size:14px;color:#1a1f2e;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">Greater China (incl. HK / Taiwan)</div>
-                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                    <tr>
-                      <td style="padding-bottom:10px;">
-                        <div style="color:#4a5568;font-size:15px;"><strong>Hyatt Q1 Greater China RevPAR: +12.4% YoY.</strong> Domestic leisure demand during Lunar New Year and improving inbound travel from the US drove the beat. Source: <a href="https://newsroom.hyatt.com/Q1-2026-Earnings" style="color:#b83c5a;text-decoration:none;font-weight:600;">Hyatt Newsroom, 30 Apr 2026</a></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="padding-bottom:10px;">
-                        <div style="color:#4a5568;font-size:15px;"><strong>China May Day:</strong> 1.52 billion cross-regional trips projected for the five-day holiday, a record high and +4% YoY. Small-city and county hotel bookings doubled YoY. International hotel bookings to Australia, Spain, and Turkey each more than doubled. Source: <a href="https://www.globaltimes.cn/page/202604/1359573.shtml" style="color:#b83c5a;text-decoration:none;font-weight:600;">Global Times, 30 Apr 2026</a></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div style="color:#4a5568;font-size:15px;"><strong>Wyndham Mainland China:</strong> net room growth +13% in Q1 2026. China RevPAR improved sequentially from -10% in Q4 2025 to -5% in Q1 2026. Recovery trajectory is upward but still below prior-year levels. Source: <a href="https://skift.com/2026/04/30/wyndham-pitches-ai-as-antidote-to-hotel-margin-squeeze/" style="color:#b83c5a;text-decoration:none;font-weight:600;">Skift, 30 Apr 2026</a></div>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
+  <div class="tweet-box">
+    <div class="handle">@LodgingEconomet</div>
+    <div class="tweet-text">"The Asia Pacific, excluding China, Hotel Construction Pipeline Reaches Record Highs in Q3 2025."</div>
+    <div class="tweet-link">Early 2026 &mdash; <a href="https://x.com/LodgingEconomet/status/1987879217049030803" target="_blank">x.com/LodgingEconomet/status/1987879217049030803</a></div>
+  </div>
 
-            <!-- Southeast Asia -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:22px;">
-              <tr>
-                <td style="border-left:4px solid #2874a6;padding-left:16px;">
-                  <div style="font-weight:700;font-size:14px;color:#1a1f2e;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">Southeast Asia (SG / TH / VN / ID / MY / PH)</div>
-                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                    <tr>
-                      <td style="padding-bottom:10px;">
-                        <div style="color:#4a5568;font-size:15px;"><strong>Singapore:</strong> Q1 2026 RevPAR +4.8% to S$228.45. International visitor arrivals +2.8% YoY at 4.4 million. February was the strongest month at +10.3% RevPAR. Full-year STB target: 17-18 million visitors, SGD 31-32.5 billion tourism receipts. TFWA Asia Pacific at Marina Bay Sands (May 10-14) adding corporate demand this week. Source: <a href="https://www.travelandtourworld.com/news/article/singapore-tourism-soars-in-q1-2026-despite-global-strife-whats-driving-record-growth-and-whats-next-for-travel/" style="color:#2874a6;text-decoration:none;font-weight:600;">Travel &amp; Tour World, 2026</a></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="padding-bottom:10px;">
-                        <div style="color:#4a5568;font-size:15px;"><strong>Thailand:</strong> Thai Hotels Association warned that Q2 forward bookings are weaker than prior year as airfares spike and uncertainty rises. Bangkok oversupply continues with 5,300+ new rooms opened in 2025. The Skift Asia Forum held at Avani+ Riverside Bangkok (April 28-29) drew 450+ senior travel leaders, generating strong hotel demand at the flagship property. Source: <a href="https://skift.com/2026/04/29/accor-on-hotel-competition-at-skift-asia-forum-2026/" style="color:#2874a6;text-decoration:none;font-weight:600;">Skift, 29 Apr 2026</a></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="padding-bottom:10px;">
-                        <div style="color:#4a5568;font-size:15px;"><strong>SEA booking surge:</strong> Traveloka 5.5 EPIC Sale launches May 4-8 with up to 80% off hotels and 55% off flights across Indonesia, Malaysia, Singapore, Thailand, and Vietnam. Traveloka data released April 30 shows SEA travellers book 25% more on double-digit dates even without promotions. Source: <a href="https://www.manilatimes.net/2026/04/30/tmt-newswire/pr-newswire/traveloka-southeast-asia-travelers-book-25-more-on-double-digit-dates-even-without-sales/2332240" style="color:#2874a6;text-decoration:none;font-weight:600;">Manila Times (PR Newswire), 30 Apr 2026</a></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div style="color:#4a5568;font-size:15px;"><strong>Minor Hotels:</strong> announced Anantara Private Jet Journeys targeting 2027 launch, covering Maldives, Sri Lanka, Thailand, Kenya, and Tanzania. This positions Minor as a full-journey luxury operator, deepening loyalty lock-in beyond room nights. Source: <a href="https://skift.com/2026/04/29/minor-hotels-to-launch-private-jet-experience-exclusive/" style="color:#2874a6;text-decoration:none;font-weight:600;">Skift (Exclusive), 29 Apr 2026</a></div>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
+  <p style="font-size:15px;color:#374151;margin-top:12px;">Full live-feed access to X was blocked during this run. For real-time hospitality chatter, check @Skift, @PhocusWire, @hotelmgmt, and @TTGAsia directly.</p>
+</div>
 
-            <!-- India -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:22px;">
-              <tr>
-                <td style="border-left:4px solid #7c6d9e;padding-left:16px;">
-                  <div style="font-weight:700;font-size:14px;color:#1a1f2e;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">India</div>
-                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                    <tr>
-                      <td style="padding-bottom:10px;">
-                        <div style="color:#4a5568;font-size:15px;">Hyatt Q1 APAC ex-China RevPAR +11.3% includes India. Manali hotel occupancy approaching 80% and expected to cross 90% in peak May-June season. India-wide room rate appreciation of approximately 6% projected for 2026, lifting ADR into the INR 9,400-9,700 range. Source: <a href="https://www.travelandtourworld.com/news/article/tourism-surge-in-manali-as-hotel-occupancy-reaches-new-heights-driving-himachal-pradeshs-thriving-travel-industry/" style="color:#7c6d9e;text-decoration:none;font-weight:600;">Travel &amp; Tour World, 2026</a></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div style="color:#4a5568;font-size:15px;">Minor Hotels signed Anantara's first two India properties: Anantara Zanti Coorg Resort (69 rooms) and Anantara Kolkata Hotel (170 keys), targeting 50 Anantara hotels in India over five years. The Hoxton also announced its first Asia property in Bengaluru. These entries signal premium international chains are accelerating India bets. Source: <a href="https://www.hospitalitynet.org/announcement/41014362.html" style="color:#7c6d9e;text-decoration:none;font-weight:600;">Hospitality Net, 2026</a></div>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
+<!-- ===== SECTION 4: DEMAND SIGNALS ===== -->
+<div class="card">
+  <h2><span class="section-num">04</span> Demand Signals</h2>
 
-            <!-- Pacific Islands -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <td style="border-left:4px solid #9aa3b0;padding-left:16px;">
-                  <div style="font-weight:700;font-size:14px;color:#1a1f2e;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">Pacific Islands</div>
-                  <div style="color:#6b7280;font-size:15px;font-style:italic;">Quiet in this window.</div>
-                </td>
-              </tr>
-            </table>
+  <div class="signal-row">
+    <strong>China May Day: domestic demand explosion, outbound muted.</strong> Nearly 1.52 billion inter-regional domestic trips forecast for the five-day holiday, up 4% year-on-year. Travel reservations (transport plus accommodation) up 28% year-on-year. Hotel occupancy approaching 90% nationally. Outbound is present but concentrated in short-haul markets such as Japan, Korea, and Hong Kong. Major SEA routes reduced. (<a href="https://www.micetraveladvisor.com/news/article/china-guangzhou-shanghai-beijing-now-witness-historic-may-day-2026-travel-rush-with-1-52-billion-trips-and-rising-inbound-tourism-demand/" target="_blank">MICE Travel Advisor, May 2026</a>)
+  </div>
 
-          </td>
-        </tr>
-      </table>
-      <!-- END SECTION 2 -->
+  <div class="signal-row">
+    <strong>Labour Day intra-APAC bookings up 15%.</strong> Singapore, India, Korea, Malaysia, Indonesia, and the Philippines are all tracking 15% growth in outbound bookings for the Labour Day holiday window. Multi-city itineraries combining two or more APAC destinations are surging as travelers maximize multi-night value. This is a direct conversion argument for Accor Plus (free night on two-for-one stays). (<a href="https://www.travelandtourworld.com/news/article/singapore-and-china-joins-thailand-malaysia-indonesia-and-the-philippines-in-experiencing-a-15-growth-in-international-travel-during-the-labour-day-holiday-with-multi-destination-trips-and-popular/" target="_blank">Travel and Tour World, May 2026</a>)
+  </div>
 
+  <div class="signal-row">
+    <strong>Korea Golden Week: extreme pricing compression.</strong> Gangneung hotel prices seven times base rate. Premium rooms in key destinations priced at 2-3 million won for the five-day period. Only high-priced inventory remains available. Japan Golden Week typically generates similar dynamics; Korea is now replicating the pattern. (<a href="https://www.asiae.co.kr/en/article/2026042816410345115" target="_blank">Asian Business Daily, 28 Apr 2026</a>)
+  </div>
 
-      <!-- SECTION 3: X CHATTER -->
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;border-radius:10px;margin-bottom:24px;">
-        <tr>
-          <td style="padding:28px 32px 28px 32px;">
-            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#1d6fa4;margin-bottom:6px;">03 / X Chatter</div>
-            <h2 style="margin:0 0 12px 0;font-size:20px;font-weight:700;color:#1a1f2e;">Social signals from the last 7 days</h2>
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
-              <tr>
-                <td style="background-color:#fff8e6;border:1px solid #f5dfa0;border-radius:6px;padding:12px 16px;font-size:13px;color:#8a6a00;">
-                  <strong>X access strategy:</strong> Direct fetching of x.com returned 403 errors today. The two posts below were surfaced via Google search snippets containing verified x.com tweet URLs. Industry executive quotes from verified April 29-May 1 trade coverage used as fallback.
-                </td>
-              </tr>
-            </table>
+  <div class="signal-row">
+    <strong>Vietnam holiday occupancy: 99% in Hue.</strong> Vietnam's strong result during the April 30-May 3 holiday confirms the country's trajectory as Southeast Asia's top 2026 performer. Revenue density is improving, not just volume. Hanoi's 5 trillion VND holiday take is a data point to use with Vietnam hotel partners considering Accor Plus distribution. (<a href="https://en.vietnamplus.vn/international-arrivals-to-hue-surge-during-april-30-may-1-holiday-post342103.vnp" target="_blank">VietnamPlus, May 2026</a>)
+  </div>
 
-            <!-- Tweet 1 -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f7f9fc;border:1px solid #e8ecf4;border-radius:8px;margin-bottom:16px;">
-              <tr>
-                <td style="padding:16px 20px;">
-                  <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom:10px;">
-                    <tr>
-                      <td style="background-color:#1d9bf0;color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 8px;border-radius:4px;">X (TWITTER)</td>
-                    </tr>
-                  </table>
-                  <div style="font-size:15px;color:#2a2a2a;line-height:1.6;margin-bottom:8px;">"Asia is driving global travel growth - and the strategy conversations are already underway. At the Skift Asia Forum 2026, leaders across aviation, hospitality, destinations, and travel tech gather for candid discussions on scaling growth, reinvention, partnerships, and what's next..."</div>
-                  <div style="font-size:13px;color:#6b7280;"><strong><a href="https://x.com/skift/status/2029142590205882510" style="color:#1d9bf0;text-decoration:none;">@skift</a></strong> &nbsp;|&nbsp; Apr 2026 &nbsp;|&nbsp; <a href="https://x.com/skift/status/2029142590205882510" style="color:#1d9bf0;text-decoration:none;">View on X</a></div>
-                </td>
-              </tr>
-            </table>
+  <div class="signal-row">
+    <strong>APAC airline seat capacity: up 4.9% in Q2 2026.</strong> Airlines have scheduled approximately 588.4 million departure seats across APAC in Q2 2026, up from 560.9 million a year earlier. Domestic China continues to dominate. International capacity is recovering but fuel costs are compressing margins on longer routes. (<a href="https://aviationweek.com/air-transport/airports-networks/numbers-asia-pacific-q2-2026" target="_blank">Aviation Week, Q2 2026</a>)
+  </div>
 
-            <!-- Tweet 2 -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f7f9fc;border:1px solid #e8ecf4;border-radius:8px;margin-bottom:20px;">
-              <tr>
-                <td style="padding:16px 20px;">
-                  <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom:10px;">
-                    <tr>
-                      <td style="background-color:#1d9bf0;color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 8px;border-radius:4px;">X (TWITTER)</td>
-                    </tr>
-                  </table>
-                  <div style="font-size:15px;color:#2a2a2a;line-height:1.6;margin-bottom:8px;">"Global lifestyle hotel brand The Hoxton has chosen Bengaluru for its first-ever property in Asia. The London-founded brand will open The Hoxton Bengaluru City in 2026, marking its India and Asia debut. Another global brand backing Bengaluru's growing premium hospitality market."</div>
-                  <div style="font-size:13px;color:#6b7280;"><strong><a href="https://x.com/bengalurupost1/status/2049073639648035135" style="color:#1d9bf0;text-decoration:none;">@bengalurupost1</a></strong> &nbsp;|&nbsp; May 2026 &nbsp;|&nbsp; <a href="https://x.com/bengalurupost1/status/2049073639648035135" style="color:#1d9bf0;text-decoration:none;">View on X</a></div>
-                </td>
-              </tr>
-            </table>
+  <div class="signal-row">
+    <strong>Currency and cost watch.</strong> The SEA energy crisis (resulting from the broader 2026 Middle East conflict driving Brent crude above $115/barrel) has pushed jet fuel costs to roughly double normal levels, adding 25-50% to long-haul fares and 20-30% to in-destination transport. This works two ways: it hurts casual leisure travelers and strengthens the value case for pre-purchased hotel discounts that insulate members from rate volatility. (<a href="https://asia.hsmai.org/2026/04/02/energy-crisis-sea-travel-recovery/" target="_blank">HSMAI Asia, Apr 2026</a>)
+  </div>
 
-            <!-- Fallback voices -->
-            <div style="font-size:12px;font-weight:700;color:#9aa3b0;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;">Fallback voices from verified April 29 - May 1 trade coverage</div>
+  <div class="signal-row">
+    <strong>Singapore on track for 17-18M arrivals full year 2026.</strong> STB's stated forecast. Q1 delivered 4.4M arrivals, suggesting the full-year pace is achievable. The Herbalife Asia Pacific Extravaganza (June 2026, 25,000 pax) will spike June occupancy sharply. (<a href="https://www.travelandtourworld.com/news/article/singapore-tourism-soars-in-q1-2026-despite-global-strife-whats-driving-record-growth-and-whats-next-for-travel/" target="_blank">Travel and Tour World, May 2026</a>)
+  </div>
 
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f7f9fc;border:1px solid #e8ecf4;border-left:4px solid #7c6d9e;border-radius:4px;margin-bottom:14px;">
-              <tr>
-                <td style="padding:14px 18px;">
-                  <div style="font-size:15px;color:#2a2a2a;line-height:1.6;font-style:italic;margin-bottom:8px;">"Converting a 150-room independent hotel to an Accor property can activate distribution within weeks rather than years. Mid-scale and economy account for 70% of new development, and that is where the growth is."</div>
-                  <div style="font-size:13px;color:#6b7280;"><strong>Andrew Langdon, CDO Accor</strong> at Skift Asia Forum 2026, Bangkok &nbsp;|&nbsp; <a href="https://skift.com/2026/04/29/accor-on-hotel-competition-at-skift-asia-forum-2026/" style="color:#7c6d9e;text-decoration:none;">Skift, 29 Apr 2026</a></div>
-                </td>
-              </tr>
-            </table>
+</div>
 
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f7f9fc;border:1px solid #e8ecf4;border-left:4px solid #3a7d6b;border-radius:4px;margin-bottom:14px;">
-              <tr>
-                <td style="padding:14px 18px;">
-                  <div style="font-size:15px;color:#2a2a2a;line-height:1.6;font-style:italic;margin-bottom:8px;">"Asia Pacific still has significant room for more luxury hotels. We are making eight new brand debuts in the region this year alone, and the pipeline beyond that is strong."</div>
-                  <div style="font-size:13px;color:#6b7280;"><strong>Alan Watts, President APAC, Hilton</strong> at Skift Asia Forum 2026, Bangkok &nbsp;|&nbsp; <a href="https://skift.com/2026/04/29/hilton-hospitalitys-battle-for-influence-in-luxury-and-lifestyle-alan-watts-at-skift-asia-forum-2026/" style="color:#3a7d6b;text-decoration:none;">Skift, 29 Apr 2026</a></div>
-                </td>
-              </tr>
-            </table>
+<!-- ===== SECTION 5: COMPETITOR INTEL ===== -->
+<div class="card">
+  <h2><span class="section-num">05</span> Competitor Intel</h2>
 
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f7f9fc;border:1px solid #e8ecf4;border-left:4px solid #2874a6;border-radius:4px;">
-              <tr>
-                <td style="padding:14px 18px;">
-                  <div style="font-size:15px;color:#2a2a2a;line-height:1.6;font-style:italic;margin-bottom:8px;">"Marriott is spending hundreds of millions of dollars a year to overhaul its property management, reservations, and loyalty systems. Bonvoy must be experiential-led, not just a transactional points program."</div>
-                  <div style="font-size:13px;color:#6b7280;"><strong>Rajeev Menon, President APAC, Marriott International</strong> at Skift Asia Forum 2026, Bangkok &nbsp;|&nbsp; <a href="https://skift.com/2026/04/29/marriotts-rajeev-menon-and-mandarin-orientals-alex-schellenberger-at-skift-asia-forum-2026/" style="color:#2874a6;text-decoration:none;">Skift, 29 Apr 2026</a></div>
-                </td>
-              </tr>
-            </table>
+  <div class="alert-box">
+    <strong>Urgent (today/tomorrow):</strong> IHG One Rewards 5,000-point promo requires registration by <strong>6 May 2026</strong>. Prospects shopping hotel loyalty programs right now are being pulled by this offer. Know the counter-argument.
+  </div>
 
-          </td>
-        </tr>
-      </table>
-      <!-- END SECTION 3 -->
+  <div class="comp-row">
+    <div class="comp-name">IHG One Rewards</div>
+    Running two active promos in APAC right now. First: 5,000 bonus points per every two qualifying nights (April 21-June 21) across Asia, Africa, and Middle East. <strong>Register by May 6, 2026.</strong> Second: targeted 2x unlimited bonus points on stays through May 19, 2026. The double-dip of two overlapping promotions signals IHG is in active member acquisition mode in APAC. Counter: Accor Plus delivers a guaranteed discount, free nights, and F&amp;B benefits every visit, not registration-dependent points sprints. (<a href="https://awardwallet.com/news/ihg-one-rewards/current-ihg-promotion/" target="_blank">AwardWallet, May 2026</a>; <a href="https://theshutterwhale.com/blog/2026/4/3/ihg-one-rewards-targeted-offer-unlimited-2x-bonus-points-on-stays-until-19-may-2026" target="_blank">The Shutterwhale, Apr 2026</a>)
+  </div>
 
+  <div class="comp-row">
+    <div class="comp-name">Marriott Bonvoy</div>
+    Two active hooks this month. First: 40,000 bonus points on qualifying Homes &amp; Villas stays booked by May 14, 2026, for travel through early 2027. Open to all members. Second: Q1 promo (2,500 points per stay, plus one bonus Elite Night Credit per brand sampled) runs through May 10, though registration closed April 26. Marriott is using the Homes &amp; Villas offer to broaden the perception of what loyalty can access, which competes with Accor Plus's broader property spread. (<a href="https://frequentmiler.com/current-hotel-promotions/" target="_blank">FrequentMiler, May 2026</a>; <a href="https://awardwallet.com/news/marriott-bonvoy/marriott-promotions/" target="_blank">AwardWallet, May 2026</a>)
+  </div>
 
-      <!-- SECTION 4: DEMAND SIGNALS -->
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;border-radius:10px;margin-bottom:24px;">
-        <tr>
-          <td style="padding:28px 32px 28px 32px;">
-            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#c4752a;margin-bottom:6px;">04 / Demand Signals</div>
-            <h2 style="margin:0 0 20px 0;font-size:20px;font-weight:700;color:#1a1f2e;">Bookings, routes, capacity, events, and currency</h2>
+  <div class="comp-row">
+    <div class="comp-name">Hilton Honors</div>
+    20% transfer bonus when moving Amex Membership Rewards points to Hilton Honors, valid until May 30, 2026. Effective for Amex cardholders inflating their Hilton points balance before a trip. Not APAC-specific but relevant to the premium traveler segment. (<a href="https://www.headforpoints.com/2026/05/05/best-hotel-promos-may-2026/" target="_blank">Head for Points, 5 May 2026</a>)
+  </div>
 
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:14px;">
-              <tr>
-                <td style="background-color:#fdf6ee;border-left:4px solid #c4752a;border-radius:4px;padding:14px 16px;">
-                  <div style="font-weight:700;color:#1a1f2e;font-size:15px;margin-bottom:6px;">China outbound boom (May 1-5)</div>
-                  <div style="color:#4a5568;font-size:15px;">Outbound multi-day tour bookings up 50% for the May Day holiday. Hotel bookings to Australia doubled. APAC destinations including Japan, Thailand, Singapore, and Vietnam are capturing additional Chinese traveller spend. Daily passenger flows peaking at 2.4 million. This is the single biggest demand pulse of Q2. Source: <a href="https://www.globaltimes.cn/page/202604/1359573.shtml" style="color:#c4752a;text-decoration:none;font-weight:600;">Global Times, 30 Apr 2026</a></div>
-                </td>
-              </tr>
-            </table>
+  <div class="comp-row">
+    <div class="comp-name">GHA Discovery</div>
+    Green Stay Reward: book direct on the GHA DISCOVERY app, complete a stay between April 22 and May 31, 2026, and receive 5 Discovery Dollars (D$). Running concurrently with a separate earn-up-to-150-D$ promo through September 30 for stays at select brands (ASMALLWORLD, Nikki Beach, Andronis, Divani, The Set). GHA is positioning sustainability credentials alongside monetary rewards, appealing to eco-conscious buyers. (<a href="https://www.ghadiscovery.com/d-promotions/green-stay-reward-2026" target="_blank">GHA Discovery, May 2026</a>)
+  </div>
 
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:14px;">
-              <tr>
-                <td style="background-color:#f0f7f4;border-left:4px solid #3a7d6b;border-radius:4px;padding:14px 16px;">
-                  <div style="font-weight:700;color:#1a1f2e;font-size:15px;margin-bottom:6px;">Korea Golden Holiday demand spike (Apr 28 - May 5)</div>
-                  <div style="color:#4a5568;font-size:15px;">Full occupancy at premium Seoul hotels at up to 3x standard ADR. Resort markets near capacity. 100,000+ Chinese overnight visitors during the period. Accor Plus member rates at properties like Fairmont Ambassador Seoul represent genuine savings of hundreds of thousands of won per night versus walk-in pricing. Source: <a href="https://www.asiae.co.kr/en/article/2026042816410345115" style="color:#3a7d6b;text-decoration:none;font-weight:600;">Asia Business Daily, 28 Apr 2026</a></div>
-                </td>
-              </tr>
-            </table>
+  <div class="comp-row">
+    <div class="comp-name">Mandarin Oriental Fans of MO</div>
+    No new APAC promo in the window. Mandarin Oriental's CEO Alex Schellenberger appeared at Skift Asia Forum (April 29) but no loyalty launch announced from the session. (<a href="https://skift.com/2026/04/29/marriotts-rajeev-menon-and-mandarin-orientals-alex-schellenberger-at-skift-asia-forum-2026/" target="_blank">Skift, 29 Apr 2026</a>)
+  </div>
 
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:14px;">
-              <tr>
-                <td style="background-color:#f5f0fb;border-left:4px solid #7c6d9e;border-radius:4px;padding:14px 16px;">
-                  <div style="font-weight:700;color:#1a1f2e;font-size:15px;margin-bottom:6px;">Traveloka 5.5 EPIC Sale (May 4-8) vs Accor Plus positioning</div>
-                  <div style="color:#4a5568;font-size:15px;">Traveloka's largest annual sale runs May 4-8 with up to 80% off hotels across SEA. SEA travellers book 25% more on double-digit dates per Traveloka research. The sale temporarily undercuts Accor Plus member rates on select properties. Your pitch this week should focus on the 365-day value of Accor Plus (2 Free Nights, 15% off dining, 50% off accommodation) rather than competing against a 4-day flash sale. Source: <a href="https://www.manilatimes.net/2026/04/30/tmt-newswire/pr-newswire/traveloka-southeast-asia-travelers-book-25-more-on-double-digit-dates-even-without-sales/2332240" style="color:#7c6d9e;text-decoration:none;font-weight:600;">Manila Times, 30 Apr 2026</a></div>
-                </td>
-              </tr>
-            </table>
+  <div class="comp-row">
+    <div class="comp-name">Shangri-La Circle / Pan Pacific DISCOVERY / World of Hyatt</div>
+    No new APAC promo announcements in the April 28-May 5 window. Hyatt Bonus Journeys (up to 28K points) ended April 15 and is outside the window.
+  </div>
 
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:14px;">
-              <tr>
-                <td style="background-color:#f0f5fa;border-left:4px solid #2874a6;border-radius:4px;padding:14px 16px;">
-                  <div style="font-weight:700;color:#1a1f2e;font-size:15px;margin-bottom:6px;">Australia route and capacity expansion</div>
-                  <div style="color:#4a5568;font-size:15px;">56 new international routes for 2026 will generate 1.9 million additional hotel room nights nationally and lift average occupancy by 3.4 percentage points. Emirates restoring 96% of its global network reconnects Australia, NZ, and APAC hubs after disruptions. February 2026 arrivals already up 19.7% YoY. Sources: <a href="https://www.abs.gov.au/statistics/industry/tourism-and-transport/overseas-arrivals-and-departures-australia/latest-release" style="color:#2874a6;text-decoration:none;font-weight:600;">ABS, Apr 2026</a> / <a href="https://www.travelandtourworld.com/news/article/emirates-restores-96-of-its-global-network-reconnecting-australia-new-zealand-and-major-tourism-hubs-after-disruptions-what-this-means-for-your-next-trip/" style="color:#2874a6;text-decoration:none;font-weight:600;">Travel &amp; Tour World, 2026</a></div>
-                </td>
-              </tr>
-            </table>
+</div>
 
-            <table width="100%" cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <td style="background-color:#fef3f2;border-left:4px solid #d44d3f;border-radius:4px;padding:14px 16px;">
-                  <div style="font-weight:700;color:#1a1f2e;font-size:15px;margin-bottom:6px;">Singapore: TFWA conference at Marina Bay Sands, May 10-14</div>
-                  <div style="color:#4a5568;font-size:15px;">The TFWA Asia Pacific Exhibition draws travel retail buyers from Switzerland, UK, Australia, Malaysia, South Korea, China, and more. Corporate hotel rates near MBS will spike. Singapore Q1 RevPAR already at S$228.45 (+4.8%). Full-year STB target: 17-18 million visitors and SGD 31-32.5 billion tourism receipts. Source: <a href="https://www.micetraveladvisor.com/news/article/singapore-marina-bay-sands-drives-tourism-growth-as-tfwa-asia-pacific-exhibition-conference-2026-showcases-travel-retail-innovation-and-global-connectivity/" style="color:#d44d3f;text-decoration:none;font-weight:600;">MICE Travel Advisor, 2026</a></div>
-                </td>
-              </tr>
-            </table>
+<!-- ===== SECTION 6: POLICY AND BORDERS ===== -->
+<div class="card">
+  <h2><span class="section-num">06</span> Policy and Borders</h2>
 
-          </td>
-        </tr>
-      </table>
-      <!-- END SECTION 4 -->
+  <div class="signal-row">
+    <strong>Thailand: visa-free stay likely cut from 60 days to 30 days.</strong> The Thai Ministry of Tourism and Ministry of Foreign Affairs have signaled that the 60-day visa-free experiment is ending. A Cabinet ratification proposal was moving through the Thai government process in late April 2026, with the aim of halving the visa-exempt period back to its original 30-day limit. No implementation date is confirmed yet, but the direction is clear. This will reduce the viability of Thailand as a long-stay base for digital nomads and slow-travel visitors, compressing future mid-week occupancy at economy and mid-scale properties. (<a href="https://www.khaosodenglish.com/politics/2026/04/25/thailand-plans-to-scrap-visa-free-stay-cut-duration/" target="_blank">Khaosod English, 25 Apr 2026</a>)
+  </div>
 
+  <div class="signal-row">
+    <strong>Thailand: 300-baht air arrival fee pending Cabinet approval.</strong> Thailand's Deputy PM has tabled a 300-baht (~USD 9) tourist fee for all foreign air arrivals, to be embedded in airfares similar to Japan's departure tax. The levy would fund tourism infrastructure and include automatic travel insurance for arriving visitors. No Cabinet approval date has been set. Adds cost to inbound to Thailand, potentially nudging rate-sensitive travelers to Vietnam or Malaysia. (<a href="https://blog.wego.com/thailand-tourist-entry-fee-2026/" target="_blank">Wego Travel Blog, 2026</a>; <a href="https://www.thaiexaminer.com/thai-news-foreigners/2026/04/15/6th-minister-of-tourism-and-sports-in-3-years-promises-a-tourist-levy-a-policy-first-proposed-in-2015/" target="_blank">Thai Examiner, Apr 2026</a>)
+  </div>
 
-      <!-- SECTION 5: COMPETITOR INTEL -->
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;border-radius:10px;margin-bottom:24px;">
-        <tr>
-          <td style="padding:28px 32px 28px 32px;">
-            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#b83c5a;margin-bottom:6px;">05 / Competitor Intel</div>
-            <h2 style="margin:0 0 4px 0;font-size:20px;font-weight:700;color:#1a1f2e;">Loyalty and programme moves this week</h2>
-            <div style="font-size:14px;color:#9aa3b0;margin-bottom:20px;">New promos and structural moves only. No standing-programme context.</div>
+  <div class="signal-row">
+    <strong>Japan: departure tax triples to JPY 3,000 from July 1, 2026.</strong> Japan's ruling coalition finalized the increase in the Tax Reform Outline for FY2026. The tax rises from JPY 1,000 to JPY 3,000 per departing person (air and sea). Funds go to overtourism infrastructure. Practically invisible to travelers (embedded in airfares) but adds approximately USD 14 per person to the total cost of visiting Japan. Tax-free shopping reform effective November 1, 2026, will shift tourists to a consumption-tax-on model, reducing the duty-free shopping incentive. (<a href="https://www.travelvoice.jp/english/the-japanese-ruling-parties-specify-a-rise-in-departure-tax-to-3-000-yen-in-the-tax-reform-outline-for-fy2026" target="_blank">Travel Voice, 2026</a>)
+  </div>
 
-            <!-- Hilton -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;border:1px solid #f0ede8;border-radius:8px;">
-              <tr>
-                <td style="background-color:#f8f5ff;padding:10px 16px;border-bottom:1px solid #f0ede8;border-radius:8px 8px 0 0;">
-                  <div style="font-weight:700;font-size:14px;color:#1a1f2e;text-transform:uppercase;letter-spacing:0.5px;">Hilton Honors</div>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding:14px 16px;">
-                  <div style="color:#4a5568;font-size:15px;margin-bottom:10px;"><strong>"Stay More Earn More 2026"</strong> targeted promo launched (April 29): up to 15,000 bonus Honors points for qualifying stays. Registration required; stays must be completed within 6 months. Global offer, includes APAC. This is a retention play to keep Hilton members booking direct during Traveloka sale season. Source: <a href="https://loyaltylobby.com/2026/04/29/hilton-honors-stay-more-earn-more-2026-promotion-for-up-to-15000-bonus-points/" style="color:#7c6d9e;text-decoration:none;font-weight:600;">LoyaltyLobby, 29 Apr 2026</a></div>
-                  <div style="color:#4a5568;font-size:15px;"><strong>8 new APAC brand entries:</strong> Nomad Singapore, Signia Tainan, Canopy Bangkok, Waldorf Astoria KL, Conrad KL, Curio Bengaluru, LXR Bengaluru, Tapestry Hoi An - all opening 2026. Hilton's loyalty footprint in APAC expands materially by year-end, shrinking the "Accor has more properties" pitch. Source: <a href="https://stories.hilton.com/apac/releases/hilton-to-exceed-250-luxury-and-lifestyle-hotels-in-asia-pacific" style="color:#7c6d9e;text-decoration:none;font-weight:600;">Hilton Stories APAC, 29 Apr 2026</a></div>
-                </td>
-              </tr>
-            </table>
+  <div class="signal-row">
+    <strong>Philippines: ASEAN Summit in Cebu, May 6-8.</strong> The 48th ASEAN Summit and Related Meetings convene in Cebu City this week, generating short-term MICE demand in a market that has otherwise underperformed on leisure arrivals in April. A useful prompt for hotel partners in Cebu on why membership drives consistent revenue vs. sporadic MICE peaks. (<a href="https://www.top25golfcourses.com/indonesia/global-travel-news/philippines-to-host-48th-asean-summit-in-cebu/" target="_blank">Travel news, May 2026</a>)
+  </div>
 
-            <!-- Hyatt -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;border:1px solid #f0ede8;border-radius:8px;">
-              <tr>
-                <td style="background-color:#f0f7f4;padding:10px 16px;border-bottom:1px solid #f0ede8;border-radius:8px 8px 0 0;">
-                  <div style="font-weight:700;font-size:14px;color:#1a1f2e;text-transform:uppercase;letter-spacing:0.5px;">World of Hyatt</div>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding:14px 16px;">
-                  <div style="color:#4a5568;font-size:15px;margin-bottom:10px;"><strong>Q1 2026 beat (April 30):</strong> RevPAR +5.4% globally, Greater China +12.4%, APAC ex-China +11.3%. Management expects "very strong" APAC H2 2026. This gives Hyatt's sales teams strong proof points in member acquisition. Source: <a href="https://newsroom.hyatt.com/Q1-2026-Earnings" style="color:#3a7d6b;text-decoration:none;font-weight:600;">Hyatt Newsroom, 30 Apr 2026</a></div>
-                  <div style="color:#4a5568;font-size:15px;"><strong>Hyatt Place Busan Yeonsan open:</strong> first Hyatt Place in South Korea (160 rooms), the 6th Hyatt property in the country. World of Hyatt new hotel intro offer: 500 bonus points per qualifying night. Direct competition with Accor's Busan properties. Source: <a href="https://newsroom.hyatt.com/211225-Hyatt-Place-Busan-Yeonsan-Opens-South-Korea" style="color:#3a7d6b;text-decoration:none;font-weight:600;">Hyatt Newsroom, 2026</a></div>
-                </td>
-              </tr>
-            </table>
+  <div class="signal-row">
+    <strong>Malaysia: Digital Arrival Card (MDAC) required pre-arrival.</strong> All visitors to Malaysia must complete the MDAC online within three days before arrival. No new changes in the window, but friction at border remains relevant context for high-frequency travelers comparing destinations. (<a href="https://makeyourasia.com/news/current-entry-rules-in-southeast-asia.html" target="_blank">MakeYourAsia, 2026</a>)
+  </div>
 
-            <!-- GHA Discovery -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;border:1px solid #f0ede8;border-radius:8px;">
-              <tr>
-                <td style="background-color:#fff8f0;padding:10px 16px;border-bottom:1px solid #f0ede8;border-radius:8px 8px 0 0;">
-                  <div style="font-weight:700;font-size:14px;color:#1a1f2e;text-transform:uppercase;letter-spacing:0.5px;">GHA Discovery</div>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding:14px 16px;">
-                  <div style="color:#4a5568;font-size:15px;"><strong>NEW: D$40 bonus for Pan Pacific Singapore 40th anniversary.</strong> Book May 1-June 30, 2026. Stay until September 15, 2026. Members earn USD 40 in Discovery Dollars on top of standard earning. This is a targeted Singapore acquisition push timed to the market's strong Q1 performance. Counter-pitch: Accor Plus covers multiple brands and markets across all of APAC year-round, versus one property for one promotional window. Source: <a href="https://loyaltylobby.com/2026/05/02/gha-discovery-d40-bonus-for-stays-at-pan-pacific-singapore-to-celebrate-40th-anniversary-until-september-15-2026-book-may-1-june-30/" style="color:#c4752a;text-decoration:none;font-weight:600;">LoyaltyLobby, 2 May 2026</a></div>
-                </td>
-              </tr>
-            </table>
+  <div class="signal-row">
+    <strong>Singapore full-year arrivals target: 17-18 million.</strong> STB published its 2026 tourism receipts forecast at SGD 31.0-32.5 billion. No new visa changes in the window. Steady and predictable, which supports Accor Plus hotel partners in the city confident in baseline demand. (<a href="https://www.travelandtourworld.com/news/article/singapore-tourism-soars-in-q1-2026-despite-global-strife-whats-driving-record-growth-and-whats-next-for-travel/" target="_blank">Travel and Tour World, May 2026</a>)
+  </div>
 
-            <!-- Wyndham -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;border:1px solid #f0ede8;border-radius:8px;">
-              <tr>
-                <td style="background-color:#f5f0fb;padding:10px 16px;border-bottom:1px solid #f0ede8;border-radius:8px 8px 0 0;">
-                  <div style="font-weight:700;font-size:14px;color:#1a1f2e;text-transform:uppercase;letter-spacing:0.5px;">Wyndham Rewards APAC</div>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding:14px 16px;">
-                  <div style="color:#4a5568;font-size:15px;margin-bottom:10px;"><strong>Q1 2026 results (April 30):</strong> APAC RevPAR improved from -7% in Q4 2025 to -1% in Q1 2026. Southeast Asia and Pacific net room growth +11%. Mainland China +13%. Wyndham pitching AI-powered "Connect+" platform (300bps incremental direct contribution, 25% faster call handle times) as its margin defence. Source: <a href="https://skift.com/2026/04/30/wyndham-pitches-ai-as-antidote-to-hotel-margin-squeeze/" style="color:#7c6d9e;text-decoration:none;font-weight:600;">Skift, 30 Apr 2026</a></div>
-                  <div style="color:#4a5568;font-size:15px;">Wyndham's APAC footprint is primarily value/midscale, competing directly with Accor's ibis and Mercure tier at the point of membership conversion.</div>
-                </td>
-              </tr>
-            </table>
+</div>
 
-            <!-- Marriott -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;border:1px solid #f0ede8;border-radius:8px;">
-              <tr>
-                <td style="background-color:#fff0f3;padding:10px 16px;border-bottom:1px solid #f0ede8;border-radius:8px 8px 0 0;">
-                  <div style="font-weight:700;font-size:14px;color:#1a1f2e;text-transform:uppercase;letter-spacing:0.5px;">Marriott Bonvoy</div>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding:14px 16px;">
-                  <div style="color:#4a5568;font-size:15px;margin-bottom:10px;">Q1 2026 results due tomorrow (May 6). Analyst estimate: EPS $2.60, revenue $6.59B. Watch for APAC RevPAR print and updated pipeline guidance for Asia Pacific signings. Source: <a href="https://markets.financialcontent.com/stocks/article/stockstory-2026-5-5-marriott-mar-reports-earnings-tomorrow-what-to-expect" style="color:#b83c5a;text-decoration:none;font-weight:600;">FinancialContent, 5 May 2026</a></div>
-                  <div style="color:#4a5568;font-size:15px;">Rajeev Menon at Skift Asia Forum confirmed Marriott is spending hundreds of millions per year on loyalty and reservations technology to shift members away from OTAs toward direct channels. This is a direct threat to independent hotel distribution. Source: <a href="https://skift.com/2026/04/29/marriotts-rajeev-menon-and-mandarin-orientals-alex-schellenberger-at-skift-asia-forum-2026/" style="color:#b83c5a;text-decoration:none;font-weight:600;">Skift, 29 Apr 2026</a></div>
-                </td>
-              </tr>
-            </table>
+<!-- FOOTER -->
+<div class="footer">
+  <p>APAC Travel Briefing &nbsp;|&nbsp; Produced for Jared Croxton &nbsp;|&nbsp; Accor Plus APAC Sales</p>
+  <p style="margin-top:4px;">Window: 2026-04-28 to 2026-05-05 &nbsp;|&nbsp; Generated 2026-05-05 UTC</p>
+</div>
 
-            <!-- ALL Accor (own intel) -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #dce8d4;border-radius:8px;">
-              <tr>
-                <td style="background-color:#edf5e8;padding:10px 16px;border-bottom:1px solid #dce8d4;border-radius:8px 8px 0 0;">
-                  <div style="font-weight:700;font-size:14px;color:#1a1f2e;text-transform:uppercase;letter-spacing:0.5px;">ALL Accor Live Limitless (own intel)</div>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding:14px 16px;">
-                  <div style="color:#4a5568;font-size:15px;margin-bottom:10px;"><strong>3X points APAC+ME+Africa promotion booking deadline: May 3, 2026 (now closed).</strong> Eligible stays run April 20 - August 31, 2026. Countries covered include Australia, Cambodia, Fiji, Hong Kong, India, Indonesia, Japan, Malaysia, Maldives, NZ, Philippines, Singapore, South Korea, Thailand, and Vietnam. Existing registrants continue to earn enhanced points through August. Source: <a href="https://all.accor.com/a/en/loyalty-program/promotions-offers/meapac-bonus-points-offer.html" style="color:#3a7d6b;text-decoration:none;font-weight:600;">ALL Accor, 2026</a></div>
-                  <div style="color:#4a5568;font-size:15px;">Andrew Langdon at Skift Forum (April 29): Accor signed nearly 11,000 keys across Asia last year with 70% in mid-scale and economy, reinforcing the breadth of the Accor Plus property network for value-seeking travellers. Source: <a href="https://skift.com/2026/04/29/accor-on-hotel-competition-at-skift-asia-forum-2026/" style="color:#3a7d6b;text-decoration:none;font-weight:600;">Skift, 29 Apr 2026</a></div>
-                </td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-      </table>
-      <!-- END SECTION 5 -->
-
-
-      <!-- SECTION 6: POLICY AND BORDERS -->
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;border-radius:10px;margin-bottom:24px;">
-        <tr>
-          <td style="padding:28px 32px 28px 32px;">
-            <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#2874a6;margin-bottom:6px;">06 / Policy and Borders</div>
-            <h2 style="margin:0 0 20px 0;font-size:20px;font-weight:700;color:#1a1f2e;">Visa changes, levies, OTA rules, and border updates</h2>
-
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:14px;">
-              <tr>
-                <td style="background-color:#fff8e6;border:1px solid #f5dfa0;border-left:4px solid #c4752a;border-radius:4px;padding:14px 16px;">
-                  <div style="font-weight:700;color:#8a6a00;font-size:14px;margin-bottom:6px;">JAPAN: Departure tax triples from JPY 1,000 to JPY 3,000 from July 1, 2026</div>
-                  <div style="color:#4a5568;font-size:15px;">Confirmed in the FY2026 Tax Reform Outline by the ruling coalition. Applies to all travelers over two years old departing by air or sea. Revenue target: JPY 130 billion annually, earmarked for sustainable tourism infrastructure. Simultaneously, at least 20 municipalities have introduced local accommodation levies, with Kyoto charging JPY 10,000 per night at luxury properties. For your members: these add-on costs favour longer stays at known properties with guaranteed member rates over unpredictable short-stay itineraries. Sources: <a href="https://www.nationthailand.com/news/general/40065118" style="color:#c4752a;text-decoration:none;font-weight:600;">Nation Thailand, 2026</a> / <a href="https://www.travelvoice.jp/english/the-japanese-ruling-parties-specify-a-rise-in-departure-tax-to-3-000-yen-in-the-tax-reform-outline-for-fy2026" style="color:#c4752a;text-decoration:none;font-weight:600;">Travel Voice Japan, 2026</a></div>
-                </td>
-              </tr>
-            </table>
-
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:14px;">
-              <tr>
-                <td style="background-color:#f0f5fa;border:1px solid #c8dcee;border-left:4px solid #2874a6;border-radius:4px;padding:14px 16px;">
-                  <div style="font-weight:700;color:#1d4e7a;font-size:14px;margin-bottom:6px;">CHINA: 45-country visa-free policy extended through December 31, 2026</div>
-                  <div style="color:#4a5568;font-size:15px;">China confirmed the extension of its unilateral 30-day visa-free policy for nationals of 45 countries and territories through end-2026. Canadian and UK nationals can visit China for up to 30 days without a visa. Chinese consulates in Australia, NZ, Canada, Singapore, UK, and Ireland are also waiving fingerprint collection for short-term visa applicants through end-2026. This sustains outbound travel demand from China and makes APAC hotel stays accessible to Western travelers connecting via China. Source: <a href="https://www.clarkhill.com/news-events/news/february-2026-global-immigration-recap-apac/" style="color:#2874a6;text-decoration:none;font-weight:600;">Clark Hill, Feb 2026</a></div>
-                </td>
-              </tr>
-            </table>
-
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:14px;">
-              <tr>
-                <td style="background-color:#f0f7f4;border:1px solid #c0dcd5;border-left:4px solid #3a7d6b;border-radius:4px;padding:14px 16px;">
-                  <div style="font-weight:700;color:#1d4a3d;font-size:14px;margin-bottom:6px;">PHILIPPINES: Chinese nationals now visa-free for 14 days (effective January 16, 2026)</div>
-                  <div style="color:#4a5568;font-size:15px;">China nationals can enter the Philippines visa-free for up to 14 days for tourism or business. This is a material demand signal for Philippine hotel markets, particularly Manila, Boracay, and Palawan. Properties in those markets will see stronger occupancy from the Chinese leisure segment through 2026. Source: <a href="https://www.clarkhill.com/news-events/news/february-2026-global-immigration-recap-apac/" style="color:#2874a6;text-decoration:none;font-weight:600;">Clark Hill, Feb 2026</a></div>
-                </td>
-              </tr>
-            </table>
-
-            <table width="100%" cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <td style="background-color:#f8f5ff;border:1px solid #ddd5f0;border-left:4px solid #7c6d9e;border-radius:4px;padding:14px 16px;">
-                  <div style="font-weight:700;color:#4a3580;font-size:14px;margin-bottom:6px;">OTA DISTRIBUTION: "OTA 2.0" debate surfaces at Skift Asia Forum</div>
-                  <div style="color:#4a5568;font-size:15px;">A Skift Asia Forum panel on April 29 (title: "Investors Bet on OTA 2.0 - But Some Builders Aren't There Yet") surfaced a growing divide between hotel owners who want direct bookings and OTAs investing in AI-powered search and conversion. The shift toward AI-driven travel planning may reduce organic OTA discovery and make loyalty programme membership, which drives direct booking, more defensible as a long-term value proposition for hotel owners. This is a structural argument for why Accor Plus benefits hotel partners as well as members. Source: <a href="https://skift.com/2026/04/29/skift-asia-forum-ai-panel-otas-trust/" style="color:#7c6d9e;text-decoration:none;font-weight:600;">Skift, 29 Apr 2026</a></div>
-                </td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-      </table>
-      <!-- END SECTION 6 -->
-
-
-      <!-- FOOTER -->
-      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#1a1f2e;border-radius:10px;">
-        <tr>
-          <td style="padding:24px 32px;">
-            <div style="color:#8b9bb4;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">APAC Travel &amp; Hotel Briefing</div>
-            <div style="color:#6b7a94;font-size:13px;line-height:1.8;">
-              Briefing window: 2026-04-28 to 2026-05-05 &nbsp;|&nbsp; Prepared for Jared Croxton, Accor Plus &nbsp;|&nbsp; Generated 2026-05-05<br>
-              X strategy: Direct x.com access blocked (403 errors). 2 posts surfaced via Google search snippets with verified tweet IDs. Industry executive quotes from verified April 29 - May 1 trade coverage used as fallback. Tweet count: 2.<br>
-              Items rejected for being outside the briefing window: Fairmont Hanoi opening (Feb 3, 2026), Japan tax Euronews article (Apr 15), JLL APAC forecast (Oct 2025), Hilton APAC sale announcement (Apr 17), several general Australia hotel market stat pieces (early 2026), Accor rebrand context (Oct 2025). Total rejected: 6 items.
-            </div>
-          </td>
-        </tr>
-      </table>
-
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-
+</div><!-- /wrapper -->
 </body>
 </html>
