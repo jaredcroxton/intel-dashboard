@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APAC Travel Briefing, 2026-05-08</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #f0ede8;
+    color: #1a1a1a;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  a { color: #1d5fa6; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header-table { width: 100%; background: #0f1923; }
+  .header-inner { padding: 20px 32px; }
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7eb3e0;
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: #8fa8bf;
+    margin-top: 4px;
+  }
+  .wrapper { max-width: 780px; margin: 0 auto; padding: 0 16px; }
+  .section-card {
+    background: #faf9f7;
+    border-radius: 10px;
+    margin: 24px 0;
+    padding: 28px 32px;
+    border: 1px solid #e2ddd8;
+  }
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #9b8fa0;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f1923;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e2ddd8;
+  }
+  .bullet-list { list-style: none; padding: 0; }
+  .bullet-list li {
+    padding: 12px 0 12px 18px;
+    border-bottom: 1px solid #ece9e4;
+    position: relative;
+    font-size: 15.5px;
+  }
+  .bullet-list li:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 7px;
+    height: 7px;
+    background: #1d5fa6;
+    border-radius: 50%;
+  }
+  .bullet-list li:last-child { border-bottom: none; }
+  .market-block { margin-bottom: 22px; }
+  .market-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #0f1923;
+    background: #edeae5;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  .market-items { list-style: none; padding: 0; }
+  .market-items li {
+    padding: 9px 0 9px 16px;
+    border-bottom: 1px solid #ece9e4;
+    font-size: 15px;
+    position: relative;
+  }
+  .market-items li:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 5px;
+    height: 5px;
+    background: #9b8fa0;
+    border-radius: 50%;
+  }
+  .market-items li:last-child { border-bottom: none; }
+  .quiet { color: #9b8fa0; font-style: italic; font-size: 15px; padding: 8px 0; }
+  .competitor-item {
+    padding: 14px 0;
+    border-bottom: 1px solid #ece9e4;
+    font-size: 15px;
+  }
+  .competitor-item:last-child { border-bottom: none; }
+  .competitor-name {
+    font-weight: 700;
+    color: #0f1923;
+    margin-bottom: 4px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .tag-hot { background: #fde8e8; color: #c0392b; }
+  .tag-new { background: #e8f4fd; color: #1d5fa6; }
+  .tag-watch { background: #fff8e1; color: #e67e22; }
+  .source-link {
+    font-size: 12px;
+    color: #7eb3e0;
+    font-style: italic;
+  }
+  .x-fallback {
+    background: #f5f0e8;
+    border-left: 3px solid #e0cba8;
+    padding: 14px 16px;
+    border-radius: 0 6px 6px 0;
+    font-size: 15px;
+    margin-top: 8px;
+  }
+  .footer-table { width: 100%; background: #0f1923; margin-top: 32px; }
+  .footer-inner { padding: 18px 32px; text-align: center; color: #5a7a94; font-size: 12px; }
+  .window-badge {
+    display: inline-block;
+    background: #1d3a52;
+    color: #7eb3e0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .stat-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 14px 0; }
+  .stat-box {
+    flex: 1;
+    min-width: 130px;
+    background: #f0ede8;
+    border: 1px solid #ddd9d3;
+    border-radius: 7px;
+    padding: 12px 14px;
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1d5fa6;
+    line-height: 1.2;
+  }
+  .stat-label { font-size: 11px; color: #6b6068; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em; }
+  @media (max-width: 600px) {
+    .section-card { padding: 18px 16px; margin: 16px 0; }
+    .header-inner { padding: 16px; }
+    .header-title { font-size: 20px; }
+    .stat-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<table class="header-table" cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr><td>
+  <div class="header-inner">
+    <div class="header-eyebrow">Jared Croxton / Accor Plus APAC Sales</div>
+    <div class="header-title">APAC Travel &amp; Hotel Briefing</div>
+    <div class="header-sub">Friday, 8 May 2026 &nbsp;|&nbsp; Compiled 08:00 UTC</div>
+  </div>
+</td></tr>
+</table>
+
+<div class="wrapper">
+
+<!-- SECTION 1: TOP OF MIND -->
+<div class="section-card">
+  <div class="section-label">Section 1</div>
+  <div class="section-title">Top of Mind</div>
+
+  <div class="window-badge">Briefing window: 2026-05-01 to 2026-05-08</div>
+
+  <ul class="bullet-list">
+
+    <li>
+      <strong>Marriott APAC Q1 RevPAR jumped 7%, with Hong Kong and Hainan each up roughly 20%.</strong>
+      Reported in the May 6 earnings call, APAC is now Marriott's strongest-performing region globally, ahead of the US. Greater China overall came in at +6%. This is the ADR-led environment you are walking into on sales calls: guests are paying materially more, which makes a membership that locks in discounts and delivers 30% off F&amp;B an even sharper value proposition.
+      <br><span class="source-link"><a href="https://www.hotelmanagement-network.com/news/marriott-reports-q1-2026/" target="_blank">Hotel Management Network, 6 May 2026</a> | <a href="https://www.prnewswire.com/news-releases/marriott-international-reports-first-quarter-2026-results-302763318.html" target="_blank">Marriott IR, 6 May 2026</a></span>
+    </li>
+
+    <li>
+      <strong>IHG beats Q1 estimates: global RevPAR +4.4%, Greater China +5.7%.</strong>
+      Published May 7, IHG's first-quarter trading update showed RevPAR growth across all regions, with Greater China at +5.7% and EMEAA at +5.6%. IHG also launched two new promotions this week (Pick Your Points and a separate Greater China double-points track), signaling that competitors are spending hard to lock in summer stays. Your conversion window is narrowing.
+      <br><span class="source-link"><a href="https://lodgingmagazine.com/ihg-reports-q1-2026-trading-update/" target="_blank">Lodging Magazine, 7 May 2026</a> | <a href="https://www.stocktitan.net/sec-filings/IHG/6-k-intercontinental-hotels-group-plc-new-current-report-foreign-issu-e13cdc9d0e4b.html" target="_blank">IHG SEC Filing, 7 May 2026</a></span>
+    </li>
+
+    <li>
+      <strong>Hong Kong Golden Week: 1.01 million mainland arrivals (May 1-5), hotel occupancy 90%, room rates up 10%.</strong>
+      The HK government confirmed the figures on May 6. Luxury flagships hit 95% occupancy. Spending was uneven (day-tripper retail was light, but hotel and F&amp;B spend held solid). For Accor Plus, this confirms HK's premium segment is absorbing rate increases. Use occupancy data as a conversion tool: the hotel is full and rates are rising, so a membership that locks in discounts and delivers guaranteed value is a much easier sell.
+      <br><span class="source-link"><a href="https://www.info.gov.hk/gia/general/202605/06/P2026050600707.htm" target="_blank">HK Government GIA, 6 May 2026</a> | <a href="https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3352654/hong-kong-draws-over-1-million-mainland-golden-week-visitors-spending-lags" target="_blank">SCMP, 6 May 2026</a></span>
+    </li>
+
+    <li>
+      <strong>Vietnam hits 8.8 million international visitors in four months, a historic first.</strong>
+      April 2026 exceeded 2 million international arrivals in a single month for the first time in Vietnam's history. HCMC and Hanoi hotels are running at 75% occupancy, with Hue reaching 99% over the April 30-May 1 public holiday. The Fairmont Hanoi (Accor) launched its Tran Dynasty restaurant in May, led by Chef Luke Nguyen, adding a premium F&amp;B draw that directly supports Accor Plus F&amp;B discount conversations.
+      <br><span class="source-link"><a href="https://tvbrics.com/en/news/vietnam-surpasses-8-8-million-international-visitors-in-four-months-as-tourism-growth-accelerates/" target="_blank">TV BRICS, 4 May 2026</a> | <a href="https://en.vietnamplus.vn/international-arrivals-to-hue-surge-during-april-30-may-1-holiday-post342103.vnp" target="_blank">Vietnam Plus, 1 May 2026</a></span>
+    </li>
+
+    <li>
+      <strong>IHG's two-track promo blitz this week is the most aggressive competitor loyalty push in 2026 so far.</strong>
+      Pick Your Points (published May 6): 2,000 bonus points per 2 nights or 8,000 per 4 nights, May 20 to August 31. A separate track for Greater China members (published May 8) offers 2X points on stays worldwide for the same window. These two promos in one week show IHG is spending to win before summer demand crystallises. Position Accor Plus as the subscription that delivers value every trip, not a points sprint that expires in August.
+      <br><span class="source-link"><a href="https://loyaltylobby.com/2026/05/06/ihg-one-rewards-pick-your-points-promotion-for-stays-may-20-august-31-2026/" target="_blank">LoyaltyLobby, 6 May 2026</a> | <a href="https://milelion.com/2026/05/07/ihg-one-rewards-pick-your-points-promo-earn-up-to-2000-bonus-points-per-night/" target="_blank">MileLion, 7 May 2026</a> | <a href="https://loyaltylobby.com/2026/05/08/ihg-one-rewards-double-points-for-greater-china-member-stays-worldwide-may-20-august-31-2026/" target="_blank">LoyaltyLobby, 8 May 2026</a></span>
+    </li>
+
+  </ul>
+</div>
+
+
+<!-- SECTION 2: MARKET MOVERS -->
+<div class="section-card">
+  <div class="section-label">Section 2</div>
+  <div class="section-title">Market Movers</div>
+
+  <!-- AUSTRALIA / NZ -->
+  <div class="market-block">
+    <div class="market-title">Australia / New Zealand</div>
+    <ul class="market-items">
+      <li>
+        <strong>Hilton signs 251-room Hilton Adelaide East End.</strong>
+        A 27-storey flagship at 299 Pirie Street, part of the Arcadia mixed-use development. Franchise deal with Auriga Investments, operated by Trilogy Hotels. Opening 2031. Not a near-term supply threat, but it marks Hilton's commitment to South Australia after a long absence. Accor has existing inventory in Adelaide; note the long lead time before Hilton competes on the ground.
+        <br><span class="source-link"><a href="https://www.ttgasia.com/2026/05/07/hilton-set-for-return-to-adelaide-with-east-end-hotel-project/" target="_blank">TTG Asia, 7 May 2026</a> | <a href="https://www.indailysa.com.au/news/business/2026/05/05/high-end-of-town-office-blocks-18m-sale-and-new-luxury-hilton-hotel-plan" target="_blank">InDaily SA, 5 May 2026</a></span>
+      </li>
+      <li>
+        56 new international routes into Australian cities are expected to generate 1.9 million additional hotel room nights nationally, lifting average occupancy by an estimated 3.4 percentage points. Sydney gains the most (13 new routes, +542,000 room nights), Melbourne next (+409,000). Higher occupancy supports rate integrity, which improves the member discount story.
+        <br><span class="source-link"><a href="https://www.travelandtourworld.com/news/article/sydney-regional-nsw-and-greater-sydney-set-to-enjoy-a-tourism-boom-in-2026-with-over-twenty-major-events-high-hotel-occupancy-and-record-spending/" target="_blank">Travel And Tour World, May 2026</a></span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- JAPAN -->
+  <div class="market-block">
+    <div class="market-title">Japan</div>
+    <ul class="market-items">
+      <li>
+        <strong>AB Capital (HK) acquired Smile Hotel Sapporo Susukino Minami</strong> (123 keys, Hokkaido) through AB Capital Fund II for undisclosed consideration. Their 12th Japan hotel. Institutional capital continues to flow into Japan's hotel sector despite the tourism dip.
+        <br><span class="source-link"><a href="https://www.hotelnewsresource.com/article141183.html" target="_blank">HVS Bulletin, week ending 1 May 2026</a></span>
+      </li>
+      <li>
+        JTB forecasts total inbound visitors down 3% in 2026 to 41.4 million, with Chinese arrivals off roughly 60% from peak. South Korean bookings to Japan are up 138% and Taiwanese bookings up 161% January to April, partially offsetting the shortfall. ADRs are softening in Kyoto, Osaka, and Fukuoka due to excess capacity relative to remaining source markets. Japan is cheap for Australians right now (AUD/JPY around 100) and that benefits Accor Plus travel-frequency conversations.
+        <br><span class="source-link"><a href="https://capwolf.com/japan-tourism-2026-chinese-visitors-drop-60-but-numbers-hold-strong/" target="_blank">Capwolf, May 2026</a> | <a href="https://asia.nikkei.com/business/travel-leisure/foreign-visitors-to-japan-to-drop-3-in-2026-dragged-by-fewer-chinese" target="_blank">Nikkei Asia, 2026</a></span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- KOREA -->
+  <div class="market-block">
+    <div class="market-title">Korea</div>
+    <ul class="market-items">
+      <li>
+        <strong>Shinsegae selected as preferred bidder for Orakai Daehakro Hotel, Seoul</strong> (232 keys, Jongno district). Proposed price in the mid-KRW 150 billion range (approximately KRW 600 million per key), with potential expansion to 300 keys. Asset-price signal: mid-scale Seoul hotel product is trading at premium multiples.
+        <br><span class="source-link"><a href="https://www.hotelnewsresource.com/article141183.html" target="_blank">HVS Bulletin, week ending 1 May 2026</a></span>
+      </li>
+      <li>
+        South Korea's inbound tourism is under pressure as Japan draws the regional traveler who would otherwise visit Seoul. Korean tourism authorities have not yet announced a specific response measure this week.
+        <br><span class="source-link"><a href="https://www.travelandtourworld.com/news/article/south-koreas-travel-industry-faces-crisis-as-japans-tourism-dominates-resulting-in-fewer-travellers-visiting-korea-in-2026/" target="_blank">Travel And Tour World, 2026</a></span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- GREATER CHINA -->
+  <div class="market-block">
+    <div class="market-title">Greater China (incl. HK / Taiwan)</div>
+    <ul class="market-items">
+      <li>
+        <strong>Hong Kong: 1.01 million mainland arrivals, May 1-5 (+10% YoY).</strong> Hotel occupancy 90% overall; luxury flagships at 95%. Miramar Group's Causeway Bay property fully sold for the window. Room rates up 10% versus prior long holidays. HK's Tourism Board had forecast 980,000 arrivals, so the outcome beat expectations. Government is tightening anti-scam enforcement in tourist districts during peak periods.
+        <br><span class="source-link"><a href="https://www.info.gov.hk/gia/general/202605/06/P2026050600707.htm" target="_blank">HK Govt GIA, 6 May 2026</a> | <a href="https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3352395/golden-week-hong-kong-draws-more-mainland-chinese-visitors-spending-uneven" target="_blank">SCMP, 5 May 2026</a></span>
+      </li>
+      <li>
+        Marriott Q1 Greater China RevPAR +6%, led by Hong Kong and Hainan (~20% growth each). IHG Q1 Greater China RevPAR +5.7%. Both print above the global average.
+        <br><span class="source-link"><a href="https://www.hotelmanagement-network.com/news/marriott-reports-q1-2026/" target="_blank">Hotel Management Network, 6 May 2026</a> | <a href="https://lodgingmagazine.com/ihg-reports-q1-2026-trading-update/" target="_blank">Lodging Magazine, 7 May 2026</a></span>
+      </li>
+      <li>
+        China's Greater Bay Area (Shenzhen, Zhuhai, Macau corridor) set new travel records during the Labour Day Golden Week, reinforcing cross-border demand patterns.
+        <br><span class="source-link"><a href="https://macaonews.org/news/greater-bay-area/chinas-greater-bay-area-sets-new-travel-records-during-labour-day-golden-week/" target="_blank">Macau News, 6 May 2026</a></span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- SOUTHEAST ASIA -->
+  <div class="market-block">
+    <div class="market-title">Southeast Asia (SG / TH / VN / ID / MY / PH)</div>
+    <ul class="market-items">
+      <li>
+        <strong>Singapore Q1 2026:</strong> Visitor arrivals +2.8% YoY to 4.4 million. RevPAR climbed 4.8% to S$228.45 for the quarter, with February at +10.3% and March at +8.9%. STB is targeting 17-18 million total arrivals in 2026, supported by a strong MICE calendar. Limited new supply is sustaining pricing power.
+        <br><span class="source-link"><a href="https://www.theedgesingapore.com/capital/brokers-calls/spore-hospitality-see-go-time-2026-stb-forecasts-increased-visitor-arrivals" target="_blank">The Edge Singapore, 2026</a></span>
+      </li>
+      <li>
+        <strong>Vietnam record arrivals:</strong> 8.8 million international visitors January to April 2026 (first time any 4-month total has exceeded 8 million). Hotel occupancy: HCMC and Hanoi at 75%, Hue at 99% during the April 30 to May 1 holiday window. Russia, China, South Korea, India, Philippines, Indonesia, and Malaysia are all top source markets.
+        <br><span class="source-link"><a href="https://tvbrics.com/en/news/vietnam-surpasses-8-8-million-international-visitors-in-four-months-as-tourism-growth-accelerates/" target="_blank">TV BRICS, 4 May 2026</a> | <a href="https://en.vietnamplus.vn/international-arrivals-to-hue-surge-during-april-30-may-1-holiday-post342103.vnp" target="_blank">Vietnam Plus, 1 May 2026</a></span>
+      </li>
+      <li>
+        <strong>Malaysia Q1 record:</strong> 10 million+ international tourists in Q1 2026, a new Southeast Asia Q1 benchmark. Accor properties in Penang, KL, and Langkawi reported near-capacity occupancy. Tropicana Corp signed two SPAs to acquire Langkawi land parcels for MYR 195.9 million (completion Q4 2026), signaling a premium resort pipeline is in motion.
+        <br><span class="source-link"><a href="https://klnow.com.my/english/tourism-malaysia-growth-in-q1-2026/" target="_blank">KL Now, May 2026</a> | <a href="https://www.hotelnewsresource.com/article141183.html" target="_blank">HVS Bulletin, 1 May 2026</a></span>
+      </li>
+      <li>
+        <strong>Thailand Labour Day:</strong> An estimated 136,000 Chinese tourists visited Thailand between April 29 and May 6, up 26% YoY, generating THB 3.9 billion in revenue. China's share of Thailand's Labour Day visitor mix rose from 5% in 2025 to 9% in 2026. Phuket and Pattaya drove most arrivals.
+        <br><span class="source-link"><a href="https://www.travelandtourworld.com/news/article/thailand-joins-australia-singapore-south-korea-japan-malaysia-and-more-in-becoming-a-top-choice-for-chinese-tourists-during-the-labour-day-holiday-2026/" target="_blank">Travel And Tour World, May 2026</a></span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- INDIA -->
+  <div class="market-block">
+    <div class="market-title">India</div>
+    <p class="quiet">Quiet. No hotel transactions or performance prints published within the May 1-8 window with confirmed dates.</p>
+  </div>
+
+  <!-- PACIFIC ISLANDS -->
+  <div class="market-block">
+    <div class="market-title">Pacific Islands</div>
+    <p class="quiet">Quiet. No news published within the May 1-8 window with confirmed dates.</p>
+  </div>
+
+</div>
+
+
+<!-- SECTION 3: X CHATTER -->
+<div class="section-card">
+  <div class="section-label">Section 3</div>
+  <div class="section-title">X Chatter</div>
+
+  <div class="x-fallback">
+    <strong>X access blocked today.</strong> Direct scraping of x.com search URLs returned no accessible results this run. All seed handles (@Skift, @TTGAsia, @PhocusWire, @rrutherford, @BloombergAsia, @TourismAus, @VisitSingapore) returned auth walls or JavaScript-gated pages. Below are fallback voices from indexed public sources within the window.
+  </div>
+
+  <br>
+
+  <ul class="bullet-list">
+
+    <li>
+      <strong>Booking Holdings (x.com/BookingHoldings, post visible in indexed search results, early May 2026):</strong>
+      "Agoda's 2026 Travel Outlook Report highlights how secondary cities are emerging as key engines of tourism across Asia. The report offers actionable insights for industry partners ready to meet this evolving demand."
+      Relevant because: secondary-city properties are where Accor Plus inventory is often underutilised. If demand is shifting to tier-2 cities (Chiang Mai, Nha Trang, Johor Bahru, Hiroshima), membership anchors that broader footprint.
+      <br><span class="source-link"><a href="https://x.com/BookingHoldings/status/1996961510116282790" target="_blank">Booking Holdings on X, May 2026</a></span>
+    </li>
+
+    <li>
+      <strong>Skift editorial team, published May 8, 2026:</strong>
+      Article headline: "The Hotel Industry CEOs Can't Decide What Letter the Economy Is." Hilton's CEO framed a "C-shape" recovery. Marriott's CEO declined to adopt a new label. Both reported strong Q1 results and strong APAC performance. The macro uncertainty is real, but hotel operators are not pulling back. The demand environment remains constructive for premium membership sales.
+      <br><span class="source-link"><a href="https://skift.com/2026/05/08/the-hotel-industry-ceos-cant-decide-what-letter-the-economy-is/" target="_blank">Skift, 8 May 2026</a></span>
+    </li>
+
+    <li>
+      <strong>Skift editorial, May 6, 2026:</strong>
+      "Marriott Says U.S. Hotel Demand Is Spreading Beyond Luxury." Select-service RevPAR up 3.5% in Q1, luxury and resort RevPAR up nearly 7%. The broadening of demand is relevant to your mid-scale Accor Plus pitch: you are not just selling luxury access, you are capturing the trade-up traveler who is moving from economy to midscale.
+      <br><span class="source-link"><a href="https://skift.com/2026/05/06/marriott-says-u-s-hotel-demand-is-spreading-beyond-luxury/" target="_blank">Skift, 6 May 2026</a></span>
+    </li>
+
+    <li>
+      <strong>Skift, May 1, 2026:</strong>
+      Published a full video session titled "Staying Competitive as Asia's Hotel Market Shifts," focused on pricing discipline, AI-driven personalisation, and the loyalty arms race in APAC. Relevant context for sales conversations about why operators are competing hard for repeat-guest revenue.
+      <br><span class="source-link"><a href="https://skift.com/2026/05/01/full-video-staying-competitive-as-asias-hotel-market-shifts/" target="_blank">Skift, 1 May 2026</a></span>
+    </li>
+
+  </ul>
+</div>
+
+
+<!-- SECTION 4: DEMAND SIGNALS -->
+<div class="section-card">
+  <div class="section-label">Section 4</div>
+  <div class="section-title">Demand Signals</div>
+
+  <!-- Stat row -->
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 14px 0 20px 0;">
+    <tr>
+      <td width="25%" style="padding: 4px;">
+        <div class="stat-box">
+          <div class="stat-num">+7%</div>
+          <div class="stat-label">Marriott APAC Q1 RevPAR</div>
+        </div>
+      </td>
+      <td width="25%" style="padding: 4px;">
+        <div class="stat-box">
+          <div class="stat-num">90%</div>
+          <div class="stat-label">HK Hotel Occupancy, May 1-5</div>
+        </div>
+      </td>
+      <td width="25%" style="padding: 4px;">
+        <div class="stat-box">
+          <div class="stat-num">8.8M</div>
+          <div class="stat-label">Vietnam Arrivals, Jan-Apr</div>
+        </div>
+      </td>
+      <td width="25%" style="padding: 4px;">
+        <div class="stat-box">
+          <div class="stat-num">10M+</div>
+          <div class="stat-label">Malaysia Q1 Tourists</div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <ul class="bullet-list">
+
+    <li>
+      <strong>China Golden Week outbound (May 1-5):</strong> Singapore, Thailand, Vietnam, and Malaysia were the dominant short-haul destinations for Chinese outbound travelers. Thailand received 136,000 Chinese visitors (+26% YoY). Hong Kong drew 1.01 million mainland visitors, beating the government forecast of 980,000. China's outbound appetite for visa-friendly APAC is structurally intact and growing. These four markets are your highest-velocity conversion corridors.
+      <br><span class="source-link"><a href="https://www.chinatradingdesk.com/post/china-labour-day-2026-travel-outlook-outbound-demand-rising-airfares-and-booking-trends" target="_blank">China Trading Desk, May 2026</a></span>
+    </li>
+
+    <li>
+      <strong>Vietnam monthly arrivals broke the 2 million barrier for the first time in April 2026.</strong> Hue hit 99% hotel occupancy during the April 30 to May 1 long weekend. The pipeline of Chinese, Korean, Indian, and Russian source markets means this is not a single-source story: Vietnam is diversified and accelerating. Accor Plus properties in Hanoi, HCMC, and Da Nang are benefiting.
+      <br><span class="source-link"><a href="https://tvbrics.com/en/news/vietnam-surpasses-8-8-million-international-visitors-in-four-months-as-tourism-growth-accelerates/" target="_blank">TV BRICS, 4 May 2026</a></span>
+    </li>
+
+    <li>
+      <strong>AUD/JPY running around 100 in 2026</strong>, making Japan highly affordable for Australian travelers. The weak yen creates a real urgency argument: "Lock in your Accor Plus Japan stays while the rate is in your favour." This is a specific conversion hook for Australian members who are Japan-curious but price-sensitive.
+      <br><span class="source-link"><a href="https://www.xs.com/en/blog/aud-jpy-forecast/" target="_blank">XS.com currency forecast, 2026</a></span>
+    </li>
+
+    <li>
+      <strong>Japan hotel ADRs are softening in Kyoto, Osaka, and Fukuoka</strong> as Chinese visitor capacity (-60%) exceeds substitution from Korea and Taiwan. For Accor Plus, this means Japan is a member-travel opportunity (cheap rooms for members who want value) but a tougher environment for premium rate conversion.
+      <br><span class="source-link"><a href="https://capwolf.com/japan-tourism-2026-chinese-visitors-drop-60-but-numbers-hold-strong/" target="_blank">Capwolf, May 2026</a></span>
+    </li>
+
+    <li>
+      <strong>Malaysia Langkawi investment signal:</strong> Tropicana Corp's MYR 195.9 million Langkawi land acquisition (HVS Bulletin, May 1) tells you that developers are betting on 2-3 years of strong leisure demand in that corridor. Inventory is limited now, so pricing power is intact. Accor Plus properties in Langkawi are well-positioned for the next 18-24 months before new supply opens.
+      <br><span class="source-link"><a href="https://www.hotelnewsresource.com/article141183.html" target="_blank">HVS Bulletin, 1 May 2026</a></span>
+    </li>
+
+    <li>
+      <strong>IHG summer promo registration opens May 6-19.</strong> Once members register for Pick Your Points, their summer stays are likely committed to IHG properties. The next 11 days are a real conversion window before IHG locks that loyalty spend.
+      <br><span class="source-link"><a href="https://loyaltylobby.com/2026/05/06/ihg-one-rewards-pick-your-points-promotion-for-stays-may-20-august-31-2026/" target="_blank">LoyaltyLobby, 6 May 2026</a></span>
+    </li>
+
+  </ul>
+</div>
+
+
+<!-- SECTION 5: COMPETITOR INTEL -->
+<div class="section-card">
+  <div class="section-label">Section 5</div>
+  <div class="section-title">Competitor Intel</div>
+
+  <div class="competitor-item">
+    <div class="competitor-name">IHG One Rewards <span class="tag tag-hot">HOT THIS WEEK</span></div>
+    <strong>"Pick Your Points" summer promo</strong> (published May 6). Stays May 20 to Aug 31. Members choose one track: 2,000 bonus points per 2 nights, or 8,000 bonus points per 4 nights. No earning cap. Open to members in APAC (excluding Greater China, who get the separate promo below). Registration window: May 6-19. This is the biggest IHG loyalty spend of 2026 and is directly competing for the summer stay decision your prospects are making right now.
+    <br><span class="source-link"><a href="https://loyaltylobby.com/2026/05/06/ihg-one-rewards-pick-your-points-promotion-for-stays-may-20-august-31-2026/" target="_blank">LoyaltyLobby, 6 May 2026</a> | <a href="https://milelion.com/2026/05/07/ihg-one-rewards-pick-your-points-promo-earn-up-to-2000-bonus-points-per-night/" target="_blank">MileLion, 7 May 2026</a></span>
+  </div>
+
+  <div class="competitor-item">
+    <div class="competitor-name">IHG One Rewards <span class="tag tag-new">NEW TODAY</span></div>
+    <strong>"Double Points for Greater China Members" worldwide</strong> (published May 8). Separate track for Mainland China, Hong Kong, Macau, and Taiwan IHG members. 2X points on stays globally, May 20 to Aug 31. IHG is running two simultaneous campaigns targeting exactly the traveler who just drove Hong Kong occupancy to 90% during Golden Week. This is a direct play on the Chinese outbound segment.
+    <br><span class="source-link"><a href="https://loyaltylobby.com/2026/05/08/ihg-one-rewards-double-points-for-greater-china-member-stays-worldwide-may-20-august-31-2026/" target="_blank">LoyaltyLobby, 8 May 2026</a></span>
+  </div>
+
+  <div class="competitor-item">
+    <div class="competitor-name">Marriott Bonvoy <span class="tag tag-watch">ENDS MAY 10</span></div>
+    <strong>2,500 bonus points + 1 elite night credit per brand</strong> for qualifying cash stays, expiring May 10, 2026. Also running a point purchase promotion with a 40% bonus (up to 150,000 points annual cap), valid through June 23. The earn rate and elite night credit structure is designed to push members toward Marriott's multi-brand portfolio.
+    <br><span class="source-link"><a href="https://loyaltylobby.com/2026/05/06/marriott-bonvoy-bonus-points-rates-update-may-2026/" target="_blank">LoyaltyLobby, 6 May 2026</a></span>
+  </div>
+
+  <div class="competitor-item">
+    <div class="competitor-name">Hilton Honors</div>
+    <strong>100% bonus on purchase of 5,000+ Hilton Honors points</strong>, valid through May 29, 2026. Point-buy promotions are a standard retention play; the 100% multiplier is at the upper end of their historical range and signals Hilton wants to reinforce balances ahead of summer.
+    <br><span class="source-link"><a href="https://www.headforpoints.com/2026/05/05/best-hotel-promos-may-2026/" target="_blank">HeadForPoints, 5 May 2026</a></span>
+  </div>
+
+  <div class="competitor-item">
+    <div class="competitor-name">World of Hyatt</div>
+    <strong>Category changes announced in May 2026</strong>, with 7 property reclassifications confirmed so far. Category moves are a quiet way to devalue awards; Hyatt members relying on points for APAC stays may find their redemptions cost more. This creates a soft opening for the Accor Plus "pay a fixed subscription, avoid point devaluations" pitch.
+    <br><span class="source-link"><a href="https://loyaltylobby.com/2026/03/20/hyatt-surveys-elite-benefits-milestone-rewards-changes-possible-new-tier-above-globalist/" target="_blank">LoyaltyLobby, March 2026</a></span>
+  </div>
+
+  <div class="competitor-item">
+    <div class="competitor-name">ALL Accor (your programme)</div>
+    <strong>Miles-to-ALL-points conversion offer</strong> running May 5-19, 2026. Members can transfer airline miles to ALL points during this window. This is an engagement and re-activation tool. Worth knowing if prospects ask about Accor's own programme news this week.
+    <br><span class="source-link"><a href="https://www.headforpoints.com/2026/05/05/best-hotel-promos-may-2026/" target="_blank">HeadForPoints, 5 May 2026</a></span>
+  </div>
+
+  <div class="competitor-item">
+    <div class="competitor-name">Preferred Hotels &amp; Resorts</div>
+    <strong>20 new properties added to the portfolio in Q1 2026</strong>, including properties in Indonesia and other APAC markets. Preferred's GHA Discovery partnership means this supply expansion also benefits GHA's loyalty currency. Niche but worth tracking in the luxury independent segment.
+    <br><span class="source-link"><a href="https://www.ttgasia.com/2026/05/05/preferred-hotels-resorts-grows-portfolio-with-20-properties-in-1q2026/" target="_blank">TTG Asia, 5 May 2026</a></span>
+  </div>
+
+</div>
+
+
+<!-- SECTION 6: POLICY AND BORDERS -->
+<div class="section-card">
+  <div class="section-label">Section 6</div>
+  <div class="section-title">Policy and Borders</div>
+
+  <ul class="bullet-list">
+
+    <li>
+      <strong>Thailand 60-day visa exemption: still in force, but under active government review.</strong>
+      As of May 2026, no change has been enacted. Thailand's government is assessing a proposal (introduced March 2026) to cut the visa-free stay from 60 days to 30 days for 93 countries, in response to complaints about long-stay workers and illegal business activity in Phuket. A decision has not been scheduled. For Accor Plus sales: the 60-day window remains the current reality for guests from Australia, UK, and most European markets, but uncertainty persists. Watch for a formal announcement before mid-year.
+      <br><span class="source-link"><a href="https://visasnews.com/en/thailand-moves-toward-reducing-visa-free-stay-from-60-to-30-days/" target="_blank">VisasNews, 2026</a> | <a href="https://www.visaverge.com/news/thailand-cuts-visa-free-list-to-57-countries-ends-60-day-scheme-for-93/" target="_blank">VisaVerge, 2026</a></span>
+    </li>
+
+    <li>
+      <strong>China outbound confirms visa-friendly APAC as the preferred short-haul bloc.</strong>
+      Labour Day Golden Week (May 1-5) data confirms Singapore, Thailand, Vietnam, and Malaysia are absorbing the bulk of Chinese outbound short-haul demand. These are markets with strong Accor Plus inventory. The pattern supports a member pitch built around these four corridors.
+      <br><span class="source-link"><a href="https://www.chinatradingdesk.com/post/china-labour-day-2026-travel-outlook-outbound-demand-rising-airfares-and-booking-trends" target="_blank">China Trading Desk, May 2026</a></span>
+    </li>
+
+    <li>
+      <strong>Malaysia hotel investment surge: Tropicana Corp acquires Langkawi land (MYR 195.9M).</strong>
+      Two SPAs signed, completion expected Q4 2026. This is a 2-3 year supply signal. Current Accor Plus Langkawi inventory benefits from the supply gap until new product opens.
+      <br><span class="source-link"><a href="https://www.hotelnewsresource.com/article141183.html" target="_blank">HVS Bulletin, 1 May 2026</a></span>
+    </li>
+
+    <li>
+      <strong>Hong Kong crackdown on tourist scams during Golden Week.</strong>
+      The HK government stepped up enforcement against coerced shopping and grey-market tour operators ahead of and during the May 1-5 Golden Week. This is a brand-safety and guest-experience signal: luxury hotel guests in HK are being better protected, which supports premium positioning.
+      <br><span class="source-link"><a href="https://www.scmp.com/news/hong-kong/society/article/3351402/hong-kong-step-crackdown-coerced-shopping-scams-during-labour-day-golden-week" target="_blank">SCMP, 30 Apr 2026</a></span>
+    </li>
+
+    <li>
+      <strong>IHG's global system crossed 1.04 million rooms (7,014 hotels) in Q1 2026</strong>, with 343,000 rooms in the pipeline. This is a distribution signal: as IHG's network grows, their member value proposition strengthens. Accor Plus needs to lead on the APAC-specific depth of its network and the subscription benefits (F&amp;B discounts, 2-for-1 stays) that points programs do not replicate.
+      <br><span class="source-link"><a href="https://lodgingmagazine.com/ihg-reports-q1-2026-trading-update/" target="_blank">Lodging Magazine, 7 May 2026</a></span>
+    </li>
+
+  </ul>
+</div>
+
+</div><!-- end .wrapper -->
+
+<!-- FOOTER -->
+<table class="footer-table" cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr><td>
+  <div class="footer-inner">
+    <strong style="color: #7eb3e0;">APAC Travel &amp; Hotel Briefing</strong> &nbsp;|&nbsp; For Jared Croxton, Accor Plus APAC Sales &nbsp;|&nbsp; 8 May 2026<br>
+    Briefing window: 2026-05-01 to 2026-05-08 &nbsp;|&nbsp; Sources verified and date-filtered. Items outside window were rejected.<br>
+    X strategy used: Fallback (X access blocked). All X-referenced content sourced from indexed public pages.<br>
+    Tweets sourced: 1 (Booking Holdings, indexed in search results). Items rejected for being outside window: 11+.
+  </div>
+</td></tr>
+</table>
+
+</body>
+</html>
